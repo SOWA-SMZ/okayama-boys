@@ -16,8 +16,8 @@
     --row2:   #0f2347;
     --gray:   #8a9ab5;
     --hover:  #163060;
-    --fixed-w1: 52px;   /* 背番号列幅 */
-    --fixed-w2: 120px;  /* 選手名列幅 */
+    --w1: 58px;
+    --w2: 130px;
   }
   * { margin:0; padding:0; box-sizing:border-box; }
 
@@ -55,7 +55,6 @@
     opacity: .5;
   }
 
-  /* テーブル外枠 */
   .wrap {
     overflow-x: auto;
     overflow-y: auto;
@@ -74,26 +73,12 @@
     min-width: 680px;
   }
 
-  /* ===== 固定列共通 ===== */
-  .sticky-1,
-  .sticky-2 {
-    position: sticky;
-    z-index: 2;
-  }
-  .sticky-1 {
-    left: 0;
-    width: var(--fixed-w1);
-    min-width: var(--fixed-w1);
-    max-width: var(--fixed-w1);
-  }
-  .sticky-2 {
-    left: var(--fixed-w1);
-    width: var(--fixed-w2);
-    min-width: var(--fixed-w2);
-    max-width: var(--fixed-w2);
-  }
+  /* 固定列 */
+  .s1, .s2 { position: sticky; z-index: 2; }
+  .s1 { left: 0; width: var(--w1); min-width: var(--w1); }
+  .s2 { left: var(--w1); width: var(--w2); min-width: var(--w2); }
 
-  /* ===== ヘッダー ===== */
+  /* ヘッダー */
   thead th {
     background: var(--blue);
     color: var(--gold-l);
@@ -108,21 +93,15 @@
     top: 0;
     z-index: 1;
   }
-  thead th.sticky-1,
-  thead th.sticky-2 {
-    z-index: 3; /* ヘッダー固定列は最前面 */
-    background: var(--blue);
-  }
-  thead th.sticky-2 {
+  thead th.s1, thead th.s2 { z-index: 3; background: var(--blue); }
+  thead th.s2 {
     text-align: left;
-    padding-left: 12px;
-    /* 固定列の右端に影 */
-    box-shadow: 3px 0 8px rgba(0,0,0,.4);
+    padding-left: 14px;
+    box-shadow: 3px 0 8px rgba(0,0,0,.5);
   }
 
-  /* ===== データ行 ===== */
+  /* データ行 */
   tbody tr {
-    border-bottom: 1px solid rgba(255,255,255,.04);
     transition: background .15s;
     opacity: 0;
     animation: fadeUp .4s ease forwards;
@@ -159,22 +138,21 @@
     border-bottom: 1px solid rgba(255,255,255,.04);
   }
 
-  /* 固定列のセル背景（行の背景色を継承） */
-  tbody tr:nth-child(odd)  td.sticky-1,
-  tbody tr:nth-child(odd)  td.sticky-2 { background: var(--row1); }
-  tbody tr:nth-child(even) td.sticky-1,
-  tbody tr:nth-child(even) td.sticky-2 { background: var(--row2); }
-  tbody tr:hover td.sticky-1,
-  tbody tr:hover td.sticky-2 { background: var(--hover); }
+  /* 固定列の背景 */
+  tbody tr:nth-child(odd)  td.s1,
+  tbody tr:nth-child(odd)  td.s2 { background: var(--row1); }
+  tbody tr:nth-child(even) td.s1,
+  tbody tr:nth-child(even) td.s2 { background: var(--row2); }
+  tbody tr:hover td.s1,
+  tbody tr:hover td.s2    { background: var(--hover); }
 
-  /* 選手名固定列の右端に影 */
-  td.sticky-2 {
-    box-shadow: 3px 0 8px rgba(0,0,0,.4);
+  td.s2 {
     text-align: left;
-    padding-left: 12px;
+    padding-left: 14px;
     font-weight: 700;
     font-size: 14px;
     white-space: nowrap;
+    box-shadow: 3px 0 8px rgba(0,0,0,.5);
   }
 
   /* 背番号バッジ */
@@ -213,25 +191,37 @@
     opacity: .8;
   }
 
-  /* フッター集計行 */
-  tfoot tr { border-top: 2px solid var(--gold); }
-  tfoot td {
+  /* ベスト値行 */
+  tfoot tr.row-best { border-top: 2px solid var(--gold); }
+  tfoot tr.row-best td {
+    background: var(--blue);
     color: var(--gold-l);
     font-weight: 900;
     font-size: 13px;
     padding: 12px 10px;
-    background: var(--blue);
   }
-  tfoot td.sticky-1,
-  tfoot td.sticky-2 { background: var(--blue); }
-  tfoot td.sticky-2 { box-shadow: 3px 0 8px rgba(0,0,0,.4); }
-  tfoot td.foot-label { text-align: center; font-size: 11px; letter-spacing: .05em; }
-  tfoot tr:nth-child(2) td { color: #a8d8ff; border-top: 1px solid rgba(200,150,42,.3); }
-  tfoot tr:nth-child(2) td.sticky-1,
-  tfoot tr:nth-child(2) td.sticky-2 { background: var(--blue); color: #a8d8ff; }
-  tfoot tr:nth-child(2) td { color: #90b8ff; border-top: 1px solid rgba(200,150,42,.2); }
-  tfoot tr:nth-child(2) td.sticky-1,
-  tfoot tr:nth-child(2) td.sticky-2 { background: var(--blue); color: #90b8ff; }
+  tfoot tr.row-best td.s1,
+  tfoot tr.row-best td.s2 {
+    background: var(--blue);
+    box-shadow: 3px 0 8px rgba(0,0,0,.5);
+  }
+
+  /* 平均値行 */
+  tfoot tr.row-avg td {
+    background: #0b1e3a;
+    color: #90b8ff;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 12px 10px;
+    border-top: 1px solid rgba(200,150,42,.25);
+  }
+  tfoot tr.row-avg td.s1,
+  tfoot tr.row-avg td.s2 {
+    background: #0b1e3a;
+    box-shadow: 3px 0 8px rgba(0,0,0,.5);
+  }
+
+  tfoot td.label { text-align: center; font-size: 11px; letter-spacing: .05em; }
 
   .legend {
     text-align: center;
@@ -261,8 +251,8 @@
 <table>
   <thead>
     <tr>
-      <th class="sticky-1">背番号</th>
-      <th class="sticky-2">選手名</th>
+      <th class="s1">背番号</th>
+      <th class="s2">選手名</th>
       <th>遠投 ①②③（m）</th>
       <th>最長（m）</th>
       <th>50m走（秒）</th>
@@ -272,23 +262,23 @@
   </thead>
   <tbody id="tbody"></tbody>
   <tfoot>
-    <tr>
-      <td class="sticky-1 foot-label"></td>
-      <td class="sticky-2 foot-label">ベスト値</td>
+    <tr class="row-best">
+      <td class="s1 label"></td>
+      <td class="s2 label">ベスト値</td>
       <td></td>
       <td id="b-throw"></td>
       <td id="b-50"></td>
       <td id="b-rui"></td>
       <td id="b-base"></td>
     </tr>
-    <tr>
-      <td class="sticky-1 foot-label"></td>
-      <td class="sticky-2 foot-label">平均値</td>
+    <tr class="row-avg">
+      <td class="s1 label"></td>
+      <td class="s2 label">平均値</td>
       <td></td>
-      <td id="avg-throw"></td>
-      <td id="avg-50"></td>
-      <td id="avg-rui"></td>
-      <td id="avg-base"></td>
+      <td id="a-throw"></td>
+      <td id="a-50"></td>
+      <td id="a-rui"></td>
+      <td id="a-base"></td>
     </tr>
   </tfoot>
 </table>
@@ -299,21 +289,21 @@
 
 <script>
 const players = [
-  { num:51, name:"村川 昭徳",  t:[59,50,58], r50:7.98, rui:4.87, base:18.21 },
-  { num: 5, name:"緒方 相",    t:[58,49,51], r50:7.91, rui:4.82, base:17.5  },
-  { num: 2, name:"太田 泰嗣",  t:[52,51,52], r50:8.45, rui:5.15, base:18.55 },
-  { num:37, name:"豊田 凰輝",  t:[45,42,52], r50:8.02, rui:4.94, base:17.65 },
-  { num:56, name:"桐山 竜成",  t:[45,48,47], r50:8.29, rui:5.05, base:18.52 },
-  { num: 9, name:"大久保 玲",  t:[41,40,50], r50:8.49, rui:5.06, base:18.76 },
-  { num:27, name:"長尾 勇飛",  t:[63,62,61], r50:8.12, rui:5.20, base:18.81 },
-  { num:99, name:"髙須 春平",  t:[55,58,57], r50:7.84, rui:5.09, base:18.47 },
-  { num:55, name:"弦田 眞沙仁",t:[49,50,52], r50:9.00, rui:5.14, base:20.63 },
-  { num:23, name:"吉行 蓮",    t:[60,61,59], r50:7.60, rui:4.43, base:17.18 },
-  { num:92, name:"植田 晴翔",  t:[55,55,52], r50:8.52, rui:5.21, base:18.98 },
-  { num: 8, name:"佐藤 瑛真",  t:[52,53,48], r50:9.02, rui:5.19, base:19.66 },
-  { num:11, name:"月川 篤貴",  t:[58,61,59], r50:8.59, rui:4.91, base:18.64 },
-  { num:16, name:"光石 桃悟",  t:[53,55,57], r50:8.57, rui:5.35, base:19.53 },
-  { num:15, name:"岡村 太郎",  t:[54,49,54], r50:8.87, rui:5.61, base:19.54 },
+  { num:51, name:"村川 昭徳",   t:[59,50,58], r50:7.98, rui:4.87, base:18.21 },
+  { num: 5, name:"緒方 相",     t:[58,49,51], r50:7.91, rui:4.82, base:17.50 },
+  { num: 2, name:"太田 泰嗣",   t:[52,51,52], r50:8.45, rui:5.15, base:18.55 },
+  { num:37, name:"豊田 凰輝",   t:[45,42,52], r50:8.02, rui:4.94, base:17.65 },
+  { num:56, name:"桐山 竜成",   t:[45,48,47], r50:8.29, rui:5.05, base:18.52 },
+  { num: 9, name:"大久保 玲",   t:[41,40,50], r50:8.49, rui:5.06, base:18.76 },
+  { num:27, name:"長尾 勇飛",   t:[63,62,61], r50:8.12, rui:5.20, base:18.81 },
+  { num:99, name:"髙須 春平",   t:[55,58,57], r50:7.84, rui:5.09, base:18.47 },
+  { num:55, name:"弦田 眞沙仁", t:[49,50,52], r50:9.00, rui:5.14, base:20.63 },
+  { num:23, name:"吉行 蓮",     t:[60,61,59], r50:7.60, rui:4.43, base:17.18 },
+  { num:92, name:"植田 晴翔",   t:[55,55,52], r50:8.52, rui:5.21, base:18.98 },
+  { num: 8, name:"佐藤 瑛真",   t:[52,53,48], r50:9.02, rui:5.19, base:19.66 },
+  { num:11, name:"月川 篤貴",   t:[58,61,59], r50:8.59, rui:4.91, base:18.64 },
+  { num:16, name:"光石 桃悟",   t:[53,55,57], r50:8.57, rui:5.35, base:19.53 },
+  { num:15, name:"岡村 太郎",   t:[54,49,54], r50:8.87, rui:5.61, base:19.54 },
 ];
 
 const bestThrow = Math.max(...players.map(p => Math.max(...p.t)));
@@ -326,38 +316,29 @@ players.forEach(p => {
   const maxT = Math.max(...p.t);
   const tr = document.createElement('tr');
   tr.innerHTML = `
-    <td class="sticky-1"><span class="num-badge">${p.num}</span></td>
-    <td class="sticky-2">${p.name}</td>
-    <td><div class="throws">${p.t.map(v=>`<span class="tv">${v}</span>`).join('')}</div></td>
-    <td class="${maxT===bestThrow?'best':''}">${maxT}</td>
-    <td class="${p.r50===best50?'best':''}">${p.r50.toFixed(2)}</td>
-    <td class="${p.rui===bestRui?'best':''}">${p.rui.toFixed(2)}</td>
-    <td class="${p.base===bestBase?'best':''}">${p.base.toFixed(2)}</td>
+    <td class="s1"><span class="num-badge">${p.num}</span></td>
+    <td class="s2">${p.name}</td>
+    <td><div class="throws">${p.t.map(v => `<span class="tv">${v}</span>`).join('')}</div></td>
+    <td class="${maxT === bestThrow  ? 'best' : ''}">${maxT}</td>
+    <td class="${p.r50 === best50   ? 'best' : ''}">${p.r50.toFixed(2)}</td>
+    <td class="${p.rui === bestRui  ? 'best' : ''}">${p.rui.toFixed(2)}</td>
+    <td class="${p.base === bestBase ? 'best' : ''}">${p.base.toFixed(2)}</td>
   `;
   tbody.appendChild(tr);
 });
 
+// ベスト値
 document.getElementById('b-throw').textContent = bestThrow;
 document.getElementById('b-50').textContent    = best50.toFixed(2);
 document.getElementById('b-rui').textContent   = bestRui.toFixed(2);
 document.getElementById('b-base').textContent  = bestBase.toFixed(2);
 
-const avg = (arr) => arr.reduce((a,b)=>a+b,0)/arr.length;
-const avgThrow = avg(players.map(p => Math.max(...p.t)));
-const avg50    = avg(players.map(p => p.r50));
-const avgRui   = avg(players.map(p => p.rui));
-const avgBase  = avg(players.map(p => p.base));
-
-document.getElementById('a-throw').textContent = avgThrow.toFixed(1);
-document.getElementById('a-50').textContent    = avg50.toFixed(2);
-document.getElementById('a-rui').textContent   = avgRui.toFixed(2);
-document.getElementById('a-base').textContent  = avgBase.toFixed(2);
-
-const avg = (arr) => arr.reduce((a,b) => a+b, 0) / arr.length;
-document.getElementById('avg-throw').textContent = avg(players.map(p => Math.max(...p.t))).toFixed(1);
-document.getElementById('avg-50').textContent    = avg(players.map(p => p.r50)).toFixed(2);
-document.getElementById('avg-rui').textContent   = avg(players.map(p => p.rui)).toFixed(2);
-document.getElementById('avg-base').textContent  = avg(players.map(p => p.base)).toFixed(2);
+// 平均値
+const avg = arr => arr.reduce((a, b) => a + b, 0) / arr.length;
+document.getElementById('a-throw').textContent = avg(players.map(p => Math.max(...p.t))).toFixed(1);
+document.getElementById('a-50').textContent    = avg(players.map(p => p.r50)).toFixed(2);
+document.getElementById('a-rui').textContent   = avg(players.map(p => p.rui)).toFixed(2);
+document.getElementById('a-base').textContent  = avg(players.map(p => p.base)).toFixed(2);
 </script>
 </body>
 </html>
