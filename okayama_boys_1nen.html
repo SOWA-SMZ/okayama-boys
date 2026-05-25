@@ -16,8 +16,8 @@
     --row2:   #0f2347;
     --gray:   #8a9ab5;
     --hover:  #163060;
-    --w1: 58px;
-    --w2: 130px;
+    --w1: 56px;
+    --w2: 118px;
   }
   * { margin:0; padding:0; box-sizing:border-box; }
 
@@ -26,51 +26,91 @@
     color: var(--white);
     font-family: 'Noto Sans JP', sans-serif;
     min-height: 100vh;
-    padding: 28px 16px 56px;
+    padding: 20px 10px 56px;
   }
 
-  .header { text-align: center; margin-bottom: 28px; }
+  /* ヘッダー */
+  .header { text-align: center; margin-bottom: 22px; }
   .header-line {
-    width: 80px; height: 3px;
+    width: 60px; height: 3px;
     background: linear-gradient(90deg, transparent, var(--gold), transparent);
-    margin: 0 auto 18px;
+    margin: 0 auto 14px;
   }
   .team {
     font-family: 'Bebas Neue', sans-serif;
-    font-size: clamp(28px, 6vw, 48px);
+    font-size: clamp(26px, 7vw, 48px);
     letter-spacing: .15em;
     color: var(--gold-l);
     line-height: 1;
   }
   .subtitle {
-    font-size: clamp(13px, 2.5vw, 16px);
+    font-size: clamp(11px, 2.8vw, 15px);
     color: var(--gray);
-    margin-top: 8px;
-    letter-spacing: .1em;
+    margin-top: 6px;
+    letter-spacing: .06em;
   }
   .divider {
     width: 100%; height: 1px;
     background: linear-gradient(90deg, transparent, var(--gold) 30%, var(--gold) 70%, transparent);
-    margin-top: 20px;
-    opacity: .5;
+    margin-top: 16px;
+    opacity: .4;
   }
 
+  /* ソートボタン群 */
+  .sort-bar {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 14px 0 10px;
+  }
+  .sort-btn {
+    background: var(--blue);
+    border: 1px solid rgba(200,150,42,.3);
+    color: var(--gray);
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 11px;
+    padding: 5px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all .2s;
+    white-space: nowrap;
+  }
+  .sort-btn:active { transform: scale(.95); }
+  .sort-btn.active {
+    background: var(--gold);
+    color: var(--navy);
+    font-weight: 700;
+    border-color: var(--gold);
+  }
+
+  /* テーブル外枠 */
   .wrap {
     overflow-x: auto;
     overflow-y: auto;
-    max-height: 75vh;
+    max-height: 72vh;
     border-radius: 10px;
     border: 1px solid rgba(200,150,42,.2);
-    box-shadow: 0 12px 48px rgba(0,0,0,.6);
-    margin-top: 4px;
+    box-shadow: 0 8px 36px rgba(0,0,0,.6);
     -webkit-overflow-scrolling: touch;
   }
+
+  /* スクロールヒント */
+  .scroll-hint {
+    text-align: center;
+    font-size: 10px;
+    color: var(--gray);
+    margin-top: 6px;
+    opacity: .7;
+    display: none;
+  }
+  @media (max-width: 600px) { .scroll-hint { display: block; } }
 
   table {
     width: 100%;
     border-collapse: separate;
     border-spacing: 0;
-    min-width: 680px;
+    min-width: 620px;
   }
 
   /* 固定列 */
@@ -82,56 +122,46 @@
   thead th {
     background: var(--blue);
     color: var(--gold-l);
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 700;
-    letter-spacing: .08em;
-    padding: 13px 10px;
+    letter-spacing: .06em;
+    padding: 11px 8px;
     text-align: center;
     border-bottom: 2px solid var(--gold);
     white-space: nowrap;
     position: sticky;
     top: 0;
     z-index: 1;
+    cursor: pointer;
+    user-select: none;
   }
-  thead th.s1, thead th.s2 { z-index: 3; background: var(--blue); }
+  thead th:hover { background: #1f4a8a; }
+  thead th.s1, thead th.s2 { z-index: 3; background: var(--blue); cursor: default; }
+  thead th.s1:hover, thead th.s2:hover { background: var(--blue); }
   thead th.s2 {
     text-align: left;
-    padding-left: 14px;
+    padding-left: 12px;
     box-shadow: 3px 0 8px rgba(0,0,0,.5);
   }
+  /* ソートアイコン */
+  thead th .sort-icon { margin-left: 3px; opacity: .4; font-size: 9px; }
+  thead th.sorted-asc .sort-icon::after  { content: '▲'; opacity: 1; color: var(--gold-l); }
+  thead th.sorted-desc .sort-icon::after { content: '▼'; opacity: 1; color: var(--gold-l); }
+  thead th:not(.sorted-asc):not(.sorted-desc) .sort-icon::after { content: '⇅'; }
 
   /* データ行 */
   tbody tr {
-    transition: background .15s;
-    opacity: 0;
-    animation: fadeUp .4s ease forwards;
+    transition: background .12s;
   }
   tbody tr:nth-child(odd)  { background: var(--row1); }
   tbody tr:nth-child(even) { background: var(--row2); }
-  tbody tr:hover { background: var(--hover); }
-
-  @keyframes fadeUp {
-    from { opacity:0; transform:translateY(8px); }
-    to   { opacity:1; transform:translateY(0); }
+  tbody tr:active { background: var(--hover); }
+  @media (hover: hover) {
+    tbody tr:hover { background: var(--hover); }
   }
-  tbody tr:nth-child(1)  { animation-delay:.04s }
-  tbody tr:nth-child(2)  { animation-delay:.08s }
-  tbody tr:nth-child(3)  { animation-delay:.12s }
-  tbody tr:nth-child(4)  { animation-delay:.16s }
-  tbody tr:nth-child(5)  { animation-delay:.20s }
-  tbody tr:nth-child(6)  { animation-delay:.24s }
-  tbody tr:nth-child(7)  { animation-delay:.28s }
-  tbody tr:nth-child(8)  { animation-delay:.32s }
-  tbody tr:nth-child(9)  { animation-delay:.36s }
-  tbody tr:nth-child(10) { animation-delay:.40s }
-  tbody tr:nth-child(11) { animation-delay:.44s }
-  tbody tr:nth-child(12) { animation-delay:.48s }
-  tbody tr:nth-child(13) { animation-delay:.52s }
-  tbody tr:nth-child(14) { animation-delay:.56s }
-  tbody tr:nth-child(15) { animation-delay:.60s }
 
   td {
-    padding: 11px 10px;
+    padding: 10px 8px;
     font-size: 13px;
     text-align: center;
     color: var(--white);
@@ -143,14 +173,14 @@
   tbody tr:nth-child(odd)  td.s2 { background: var(--row1); }
   tbody tr:nth-child(even) td.s1,
   tbody tr:nth-child(even) td.s2 { background: var(--row2); }
-  tbody tr:hover td.s1,
-  tbody tr:hover td.s2    { background: var(--hover); }
+  tbody tr:active td.s1,
+  tbody tr:active td.s2 { background: var(--hover); }
 
   td.s2 {
     text-align: left;
-    padding-left: 14px;
+    padding-left: 12px;
     font-weight: 700;
-    font-size: 14px;
+    font-size: 13px;
     white-space: nowrap;
     box-shadow: 3px 0 8px rgba(0,0,0,.5);
   }
@@ -160,23 +190,25 @@
     display: inline-block;
     background: var(--blue);
     border: 1px solid var(--gold);
-    border-radius: 6px;
-    padding: 2px 7px;
+    border-radius: 5px;
+    padding: 1px 6px;
     font-size: 13px;
     font-weight: 900;
     color: var(--gold-l);
     font-family: 'Bebas Neue', sans-serif;
     letter-spacing: .05em;
+    min-width: 32px;
+    text-align: center;
   }
 
   /* 遠投バッジ */
-  .throws { display:flex; gap:4px; justify-content:center; flex-wrap:wrap; }
+  .throws { display:flex; gap:3px; justify-content:center; flex-wrap:wrap; }
   .tv {
     background: rgba(26,58,107,.9);
-    border: 1px solid rgba(200,150,42,.25);
+    border: 1px solid rgba(200,150,42,.2);
     border-radius: 4px;
-    padding: 2px 8px;
-    font-size: 12px;
+    padding: 1px 6px;
+    font-size: 11px;
     font-weight: 700;
     color: #c8d8ff;
   }
@@ -185,10 +217,10 @@
   .best { color: var(--gold-l) !important; font-weight: 900 !important; }
   .best::after {
     content: '★';
-    font-size: 9px;
+    font-size: 8px;
     vertical-align: super;
-    margin-left: 2px;
-    opacity: .8;
+    margin-left: 1px;
+    opacity: .9;
   }
 
   /* ベスト値行 */
@@ -197,8 +229,8 @@
     background: var(--blue);
     color: var(--gold-l);
     font-weight: 900;
-    font-size: 13px;
-    padding: 12px 10px;
+    font-size: 12px;
+    padding: 10px 8px;
   }
   tfoot tr.row-best td.s1,
   tfoot tr.row-best td.s2 {
@@ -211,30 +243,29 @@
     background: #0b1e3a;
     color: #90b8ff;
     font-weight: 700;
-    font-size: 13px;
-    padding: 12px 10px;
-    border-top: 1px solid rgba(200,150,42,.25);
+    font-size: 12px;
+    padding: 10px 8px;
+    border-top: 1px solid rgba(200,150,42,.2);
   }
   tfoot tr.row-avg td.s1,
   tfoot tr.row-avg td.s2 {
     background: #0b1e3a;
     box-shadow: 3px 0 8px rgba(0,0,0,.5);
   }
-
-  tfoot td.label { text-align: center; font-size: 11px; letter-spacing: .05em; }
+  tfoot td.label { text-align: center; font-size: 10px; letter-spacing: .04em; }
 
   .legend {
     text-align: center;
-    margin-top: 16px;
-    font-size: 11px;
+    margin-top: 12px;
+    font-size: 10px;
     color: var(--gray);
+    line-height: 1.8;
   }
   footer {
     text-align: center;
-    margin-top: 32px;
-    font-size: 11px;
-    color: rgba(138,154,181,.4);
-    letter-spacing: .06em;
+    margin-top: 28px;
+    font-size: 10px;
+    color: rgba(138,154,181,.35);
   }
 </style>
 </head>
@@ -247,17 +278,25 @@
   <div class="divider"></div>
 </div>
 
+<div class="sort-bar">
+  <button class="sort-btn active" onclick="sortBy('num')">背番号順</button>
+  <button class="sort-btn" onclick="sortBy('throw')">遠投</button>
+  <button class="sort-btn" onclick="sortBy('r50')">50m走</button>
+  <button class="sort-btn" onclick="sortBy('rui')">塁間</button>
+  <button class="sort-btn" onclick="sortBy('base')">ベースランニング</button>
+</div>
+
 <div class="wrap">
 <table>
   <thead>
     <tr>
-      <th class="s1">背番号</th>
+      <th class="s1">#</th>
       <th class="s2">選手名</th>
       <th>遠投 ①②③（m）</th>
-      <th>最長（m）</th>
-      <th>50m走（秒）</th>
-      <th>塁間（秒）</th>
-      <th>ベースランニング（秒）</th>
+      <th data-col="throw">最長（m）<span class="sort-icon"></span></th>
+      <th data-col="r50">50m走（秒）<span class="sort-icon"></span></th>
+      <th data-col="rui">塁間（秒）<span class="sort-icon"></span></th>
+      <th data-col="base">ベースランニング（秒）<span class="sort-icon"></span></th>
     </tr>
   </thead>
   <tbody id="tbody"></tbody>
@@ -284,26 +323,31 @@
 </table>
 </div>
 
-<div class="legend">★ = 各項目ベスト値　／　左2列は固定（横スクロール対応）</div>
+<div class="scroll-hint">← 横にスクロールできます →</div>
+
+<div class="legend">
+  ★ = 各項目ベスト値　／　左2列固定・横スクロール対応<br>
+  項目名タップまたはボタンで並び替え可能
+</div>
 <footer>岡山ボーイズ 指導者用資料</footer>
 
 <script>
-const players = [
-  { num:51, name:"村川 昭徳",   t:[59,50,58], r50:7.98, rui:4.87, base:18.21 },
-  { num: 5, name:"緒方 相",     t:[58,49,51], r50:7.91, rui:4.82, base:17.50 },
+let players = [
   { num: 2, name:"太田 泰嗣",   t:[52,51,52], r50:8.45, rui:5.15, base:18.55 },
-  { num:37, name:"豊田 凰輝",   t:[45,42,52], r50:8.02, rui:4.94, base:17.65 },
-  { num:56, name:"桐山 竜成",   t:[45,48,47], r50:8.29, rui:5.05, base:18.52 },
-  { num: 9, name:"大久保 玲",   t:[41,40,50], r50:8.49, rui:5.06, base:18.76 },
-  { num:27, name:"長尾 勇飛",   t:[63,62,61], r50:8.12, rui:5.20, base:18.81 },
-  { num:99, name:"髙須 春平",   t:[55,58,57], r50:7.84, rui:5.09, base:18.47 },
-  { num:55, name:"弦田 眞沙仁", t:[49,50,52], r50:9.00, rui:5.14, base:20.63 },
-  { num:23, name:"吉行 蓮",     t:[60,61,59], r50:7.60, rui:4.43, base:17.18 },
-  { num:92, name:"植田 晴翔",   t:[55,55,52], r50:8.52, rui:5.21, base:18.98 },
+  { num: 5, name:"緒方 相",     t:[58,49,51], r50:7.91, rui:4.82, base:17.50 },
   { num: 8, name:"佐藤 瑛真",   t:[52,53,48], r50:9.02, rui:5.19, base:19.66 },
+  { num: 9, name:"大久保 玲",   t:[41,40,50], r50:8.49, rui:5.06, base:18.76 },
   { num:11, name:"月川 篤貴",   t:[58,61,59], r50:8.59, rui:4.91, base:18.64 },
-  { num:16, name:"光石 桃悟",   t:[53,55,57], r50:8.57, rui:5.35, base:19.53 },
   { num:15, name:"岡村 太郎",   t:[54,49,54], r50:8.87, rui:5.61, base:19.54 },
+  { num:16, name:"光石 桃悟",   t:[53,55,57], r50:8.57, rui:5.35, base:19.53 },
+  { num:23, name:"吉行 蓮",     t:[60,61,59], r50:7.60, rui:4.43, base:17.18 },
+  { num:27, name:"長尾 勇飛",   t:[63,62,61], r50:8.12, rui:5.20, base:18.81 },
+  { num:37, name:"豊田 凰輝",   t:[45,42,52], r50:8.02, rui:4.94, base:17.65 },
+  { num:51, name:"村川 昭徳",   t:[59,50,58], r50:7.98, rui:4.87, base:18.21 },
+  { num:55, name:"弦田 眞沙仁", t:[49,50,52], r50:9.00, rui:5.14, base:20.63 },
+  { num:56, name:"桐山 竜成",   t:[45,48,47], r50:8.29, rui:5.05, base:18.52 },
+  { num:92, name:"植田 晴翔",   t:[55,55,52], r50:8.52, rui:5.21, base:18.98 },
+  { num:99, name:"髙須 春平",   t:[55,58,57], r50:7.84, rui:5.09, base:18.47 },
 ];
 
 const bestThrow = Math.max(...players.map(p => Math.max(...p.t)));
@@ -311,34 +355,82 @@ const best50    = Math.min(...players.map(p => p.r50));
 const bestRui   = Math.min(...players.map(p => p.rui));
 const bestBase  = Math.min(...players.map(p => p.base));
 
-const tbody = document.getElementById('tbody');
-players.forEach(p => {
-  const maxT = Math.max(...p.t);
-  const tr = document.createElement('tr');
-  tr.innerHTML = `
-    <td class="s1"><span class="num-badge">${p.num}</span></td>
-    <td class="s2">${p.name}</td>
-    <td><div class="throws">${p.t.map(v => `<span class="tv">${v}</span>`).join('')}</div></td>
-    <td class="${maxT === bestThrow  ? 'best' : ''}">${maxT}</td>
-    <td class="${p.r50 === best50   ? 'best' : ''}">${p.r50.toFixed(2)}</td>
-    <td class="${p.rui === bestRui  ? 'best' : ''}">${p.rui.toFixed(2)}</td>
-    <td class="${p.base === bestBase ? 'best' : ''}">${p.base.toFixed(2)}</td>
-  `;
-  tbody.appendChild(tr);
-});
-
-// ベスト値
+// ベスト値・平均値
 document.getElementById('b-throw').textContent = bestThrow;
 document.getElementById('b-50').textContent    = best50.toFixed(2);
 document.getElementById('b-rui').textContent   = bestRui.toFixed(2);
 document.getElementById('b-base').textContent  = bestBase.toFixed(2);
 
-// 平均値
-const avg = arr => arr.reduce((a, b) => a + b, 0) / arr.length;
+const avg = arr => arr.reduce((a,b) => a+b, 0) / arr.length;
 document.getElementById('a-throw').textContent = avg(players.map(p => Math.max(...p.t))).toFixed(1);
 document.getElementById('a-50').textContent    = avg(players.map(p => p.r50)).toFixed(2);
 document.getElementById('a-rui').textContent   = avg(players.map(p => p.rui)).toFixed(2);
 document.getElementById('a-base').textContent  = avg(players.map(p => p.base)).toFixed(2);
+
+// 描画
+function render(data) {
+  const tbody = document.getElementById('tbody');
+  tbody.innerHTML = '';
+  data.forEach(p => {
+    const maxT = Math.max(...p.t);
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td class="s1"><span class="num-badge">${p.num}</span></td>
+      <td class="s2">${p.name}</td>
+      <td><div class="throws">${p.t.map(v => `<span class="tv">${v}</span>`).join('')}</div></td>
+      <td class="${maxT === bestThrow  ? 'best' : ''}">${maxT}</td>
+      <td class="${p.r50 === best50   ? 'best' : ''}">${p.r50.toFixed(2)}</td>
+      <td class="${p.rui === bestRui  ? 'best' : ''}">${p.rui.toFixed(2)}</td>
+      <td class="${p.base === bestBase ? 'best' : ''}">${p.base.toFixed(2)}</td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+// ソート
+let currentSort = 'num';
+let sortAsc = true;
+
+function sortBy(key) {
+  if (currentSort === key) {
+    sortAsc = !sortAsc;
+  } else {
+    currentSort = key;
+    // 遠投・塁間・ベースランは降順→昇順の優先が直感的
+    sortAsc = (key === 'num');
+  }
+
+  // ボタンのactive切り替え
+  document.querySelectorAll('.sort-btn').forEach(btn => btn.classList.remove('active'));
+  const btnMap = { num:0, throw:1, r50:2, rui:3, base:4 };
+  document.querySelectorAll('.sort-btn')[btnMap[key]].classList.add('active');
+
+  // ヘッダーのソートアイコン
+  document.querySelectorAll('thead th[data-col]').forEach(th => {
+    th.classList.remove('sorted-asc','sorted-desc');
+    if (th.dataset.col === key) {
+      th.classList.add(sortAsc ? 'sorted-asc' : 'sorted-desc');
+    }
+  });
+
+  const getVal = p => {
+    if (key === 'num')   return p.num;
+    if (key === 'throw') return Math.max(...p.t);
+    if (key === 'r50')   return p.r50;
+    if (key === 'rui')   return p.rui;
+    if (key === 'base')  return p.base;
+  };
+
+  const sorted = [...players].sort((a,b) => {
+    const va = getVal(a), vb = getVal(b);
+    return sortAsc ? va - vb : vb - va;
+  });
+
+  render(sorted);
+}
+
+// 初期表示（背番号順）
+render(players);
 </script>
 </body>
 </html>
