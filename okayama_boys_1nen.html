@@ -16,6 +16,8 @@
     --row2:   #0f2347;
     --gray:   #8a9ab5;
     --hover:  #163060;
+    --fixed-w1: 52px;   /* 背番号列幅 */
+    --fixed-w2: 120px;  /* 選手名列幅 */
   }
   * { margin:0; padding:0; box-sizing:border-box; }
 
@@ -53,19 +55,43 @@
     opacity: .5;
   }
 
+  /* テーブル外枠 */
   .wrap {
     overflow-x: auto;
     border-radius: 10px;
     border: 1px solid rgba(200,150,42,.2);
     box-shadow: 0 12px 48px rgba(0,0,0,.6);
     margin-top: 4px;
-  }
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    min-width: 720px;
+    -webkit-overflow-scrolling: touch;
   }
 
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    min-width: 680px;
+  }
+
+  /* ===== 固定列共通 ===== */
+  .sticky-1,
+  .sticky-2 {
+    position: sticky;
+    z-index: 2;
+  }
+  .sticky-1 {
+    left: 0;
+    width: var(--fixed-w1);
+    min-width: var(--fixed-w1);
+    max-width: var(--fixed-w1);
+  }
+  .sticky-2 {
+    left: var(--fixed-w1);
+    width: var(--fixed-w2);
+    min-width: var(--fixed-w2);
+    max-width: var(--fixed-w2);
+  }
+
+  /* ===== ヘッダー ===== */
   thead th {
     background: var(--blue);
     color: var(--gold-l);
@@ -76,9 +102,23 @@
     text-align: center;
     border-bottom: 2px solid var(--gold);
     white-space: nowrap;
+    position: sticky;
+    top: 0;
+    z-index: 1;
   }
-  thead th.left { text-align: left; padding-left: 18px; }
+  thead th.sticky-1,
+  thead th.sticky-2 {
+    z-index: 3; /* ヘッダー固定列は最前面 */
+    background: var(--blue);
+  }
+  thead th.sticky-2 {
+    text-align: left;
+    padding-left: 12px;
+    /* 固定列の右端に影 */
+    box-shadow: 3px 0 8px rgba(0,0,0,.4);
+  }
 
+  /* ===== データ行 ===== */
   tbody tr {
     border-bottom: 1px solid rgba(255,255,255,.04);
     transition: background .15s;
@@ -114,32 +154,39 @@
     font-size: 13px;
     text-align: center;
     color: var(--white);
+    border-bottom: 1px solid rgba(255,255,255,.04);
   }
 
-  /* 背番号 */
-  .num-cell {
-    width: 52px;
+  /* 固定列のセル背景（行の背景色を継承） */
+  tbody tr:nth-child(odd)  td.sticky-1,
+  tbody tr:nth-child(odd)  td.sticky-2 { background: var(--row1); }
+  tbody tr:nth-child(even) td.sticky-1,
+  tbody tr:nth-child(even) td.sticky-2 { background: var(--row2); }
+  tbody tr:hover td.sticky-1,
+  tbody tr:hover td.sticky-2 { background: var(--hover); }
+
+  /* 選手名固定列の右端に影 */
+  td.sticky-2 {
+    box-shadow: 3px 0 8px rgba(0,0,0,.4);
+    text-align: left;
+    padding-left: 12px;
+    font-weight: 700;
+    font-size: 14px;
+    white-space: nowrap;
   }
+
+  /* 背番号バッジ */
   .num-badge {
     display: inline-block;
     background: var(--blue);
     border: 1px solid var(--gold);
     border-radius: 6px;
-    padding: 2px 8px;
+    padding: 2px 7px;
     font-size: 13px;
     font-weight: 900;
     color: var(--gold-l);
     font-family: 'Bebas Neue', sans-serif;
     letter-spacing: .05em;
-  }
-
-  /* 選手名 */
-  td.name-cell {
-    text-align: left;
-    padding-left: 14px;
-    font-weight: 700;
-    font-size: 14px;
-    white-space: nowrap;
   }
 
   /* 遠投バッジ */
@@ -155,10 +202,7 @@
   }
 
   /* ベスト値ハイライト */
-  .best {
-    color: var(--gold-l) !important;
-    font-weight: 900 !important;
-  }
+  .best { color: var(--gold-l) !important; font-weight: 900 !important; }
   .best::after {
     content: '★';
     font-size: 9px;
@@ -168,28 +212,24 @@
   }
 
   /* フッター集計行 */
-  tfoot tr {
-    background: var(--blue) !important;
-    border-top: 2px solid var(--gold);
-  }
+  tfoot tr { border-top: 2px solid var(--gold); }
   tfoot td {
     color: var(--gold-l);
     font-weight: 900;
     font-size: 13px;
     padding: 12px 10px;
+    background: var(--blue);
   }
-  tfoot td.foot-label {
-    text-align: center;
-    font-size: 11px;
-    letter-spacing: .05em;
-  }
+  tfoot td.sticky-1,
+  tfoot td.sticky-2 { background: var(--blue); }
+  tfoot td.sticky-2 { box-shadow: 3px 0 8px rgba(0,0,0,.4); }
+  tfoot td.foot-label { text-align: center; font-size: 11px; letter-spacing: .05em; }
 
   .legend {
     text-align: center;
     margin-top: 16px;
     font-size: 11px;
     color: var(--gray);
-    letter-spacing: .04em;
   }
   footer {
     text-align: center;
@@ -197,12 +237,6 @@
     font-size: 11px;
     color: rgba(138,154,181,.4);
     letter-spacing: .06em;
-  }
-
-  @media (max-width: 600px) {
-    .team { font-size: 32px; }
-    td, thead th { padding: 9px 7px; font-size: 12px; }
-    td.name-cell { font-size: 13px; }
   }
 </style>
 </head>
@@ -219,8 +253,8 @@
 <table>
   <thead>
     <tr>
-      <th>背番号</th>
-      <th class="left">選手名</th>
+      <th class="sticky-1">背番号</th>
+      <th class="sticky-2">選手名</th>
       <th>遠投 ①②③（m）</th>
       <th>最長（m）</th>
       <th>50m走（秒）</th>
@@ -231,7 +265,9 @@
   <tbody id="tbody"></tbody>
   <tfoot>
     <tr>
-      <td class="foot-label" colspan="3">ベスト値</td>
+      <td class="sticky-1 foot-label"></td>
+      <td class="sticky-2 foot-label">ベスト値</td>
+      <td></td>
       <td id="b-throw"></td>
       <td id="b-50"></td>
       <td id="b-rui"></td>
@@ -241,7 +277,7 @@
 </table>
 </div>
 
-<div class="legend">★ = 各項目ベスト値</div>
+<div class="legend">★ = 各項目ベスト値　／　左2列は固定（横スクロール対応）</div>
 <footer>岡山ボーイズ 指導者用資料</footer>
 
 <script>
@@ -273,8 +309,8 @@ players.forEach(p => {
   const maxT = Math.max(...p.t);
   const tr = document.createElement('tr');
   tr.innerHTML = `
-    <td class="num-cell"><span class="num-badge">${p.num}</span></td>
-    <td class="name-cell">${p.name}</td>
+    <td class="sticky-1"><span class="num-badge">${p.num}</span></td>
+    <td class="sticky-2">${p.name}</td>
     <td><div class="throws">${p.t.map(v=>`<span class="tv">${v}</span>`).join('')}</div></td>
     <td class="${maxT===bestThrow?'best':''}">${maxT}</td>
     <td class="${p.r50===best50?'best':''}">${p.r50.toFixed(2)}</td>
