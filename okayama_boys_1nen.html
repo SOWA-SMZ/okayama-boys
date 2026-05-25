@@ -58,6 +58,8 @@
   /* テーブル外枠 */
   .wrap {
     overflow-x: auto;
+    overflow-y: auto;
+    max-height: 75vh;
     border-radius: 10px;
     border: 1px solid rgba(200,150,42,.2);
     box-shadow: 0 12px 48px rgba(0,0,0,.6);
@@ -224,6 +226,12 @@
   tfoot td.sticky-2 { background: var(--blue); }
   tfoot td.sticky-2 { box-shadow: 3px 0 8px rgba(0,0,0,.4); }
   tfoot td.foot-label { text-align: center; font-size: 11px; letter-spacing: .05em; }
+  tfoot tr:nth-child(2) td { color: #a8d8ff; border-top: 1px solid rgba(200,150,42,.3); }
+  tfoot tr:nth-child(2) td.sticky-1,
+  tfoot tr:nth-child(2) td.sticky-2 { background: var(--blue); color: #a8d8ff; }
+  tfoot tr:nth-child(2) td { color: #90b8ff; border-top: 1px solid rgba(200,150,42,.2); }
+  tfoot tr:nth-child(2) td.sticky-1,
+  tfoot tr:nth-child(2) td.sticky-2 { background: var(--blue); color: #90b8ff; }
 
   .legend {
     text-align: center;
@@ -272,6 +280,15 @@
       <td id="b-50"></td>
       <td id="b-rui"></td>
       <td id="b-base"></td>
+    </tr>
+    <tr>
+      <td class="sticky-1 foot-label"></td>
+      <td class="sticky-2 foot-label">平均値</td>
+      <td></td>
+      <td id="avg-throw"></td>
+      <td id="avg-50"></td>
+      <td id="avg-rui"></td>
+      <td id="avg-base"></td>
     </tr>
   </tfoot>
 </table>
@@ -324,6 +341,23 @@ document.getElementById('b-throw').textContent = bestThrow;
 document.getElementById('b-50').textContent    = best50.toFixed(2);
 document.getElementById('b-rui').textContent   = bestRui.toFixed(2);
 document.getElementById('b-base').textContent  = bestBase.toFixed(2);
+
+const avg = (arr) => arr.reduce((a,b)=>a+b,0)/arr.length;
+const avgThrow = avg(players.map(p => Math.max(...p.t)));
+const avg50    = avg(players.map(p => p.r50));
+const avgRui   = avg(players.map(p => p.rui));
+const avgBase  = avg(players.map(p => p.base));
+
+document.getElementById('a-throw').textContent = avgThrow.toFixed(1);
+document.getElementById('a-50').textContent    = avg50.toFixed(2);
+document.getElementById('a-rui').textContent   = avgRui.toFixed(2);
+document.getElementById('a-base').textContent  = avgBase.toFixed(2);
+
+const avg = (arr) => arr.reduce((a,b) => a+b, 0) / arr.length;
+document.getElementById('avg-throw').textContent = avg(players.map(p => Math.max(...p.t))).toFixed(1);
+document.getElementById('avg-50').textContent    = avg(players.map(p => p.r50)).toFixed(2);
+document.getElementById('avg-rui').textContent   = avg(players.map(p => p.rui)).toFixed(2);
+document.getElementById('avg-base').textContent  = avg(players.map(p => p.base)).toFixed(2);
 </script>
 </body>
 </html>
