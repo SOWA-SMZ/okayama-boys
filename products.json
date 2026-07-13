@@ -20,7 +20,8 @@
   ],
   "price": 1133,
   "priceBySize": null,
-  "discontinued": true
+  "discontinued": true,
+  "pdfPage": 27
  },
  {
   "code": "0129-07",
@@ -39,7 +40,8 @@
   ],
   "price": 1111,
   "priceBySize": null,
-  "discontinued": true
+  "discontinued": true,
+  "pdfPage": 27
  },
  {
   "code": "0991-64",
@@ -55,7 +57,8 @@
   ],
   "price": 1815,
   "priceBySize": null,
-  "discontinued": false
+  "discontinued": false,
+  "pdfPage": 25
  },
  {
   "code": "12011",
@@ -69,7 +72,8 @@
   ],
   "price": 2277,
   "priceBySize": null,
-  "discontinued": false
+  "discontinued": false,
+  "pdfPage": 6
  },
  {
   "code": "12013",
@@ -83,7 +87,8 @@
   ],
   "price": 660,
   "priceBySize": null,
-  "discontinued": false
+  "discontinued": false,
+  "pdfPage": 6
  },
  {
   "code": "13003",
@@ -97,7 +102,8 @@
   ],
   "price": 209,
   "priceBySize": null,
-  "discontinued": false
+  "discontinued": false,
+  "pdfPage": 20
  },
  {
   "code": "13004",
@@ -111,7 +117,8 @@
   ],
   "price": 220,
   "priceBySize": null,
-  "discontinued": false
+  "discontinued": false,
+  "pdfPage": 20
  },
  {
   "code": "13064",
@@ -125,7 +132,8 @@
   ],
   "price": 198,
   "priceBySize": null,
-  "discontinued": false
+  "discontinued": false,
+  "pdfPage": 23
  },
  {
   "code": "13106",
@@ -139,7 +147,8 @@
   ],
   "price": 1287,
   "priceBySize": null,
-  "discontinued": false
+  "discontinued": false,
+  "pdfPage": 6
  },
  {
   "code": "13109",
@@ -159,7 +168,8 @@
   ],
   "price": 5258,
   "priceBySize": null,
-  "discontinued": true
+  "discontinued": true,
+  "pdfPage": 27
  },
  {
   "code": "13111",
@@ -173,7 +183,8 @@
   ],
   "price": 616,
   "priceBySize": null,
-  "discontinued": true
+  "discontinued": true,
+  "pdfPage": 27
  },
  {
   "code": "13203",
@@ -187,7 +198,8 @@
   ],
   "price": 792,
   "priceBySize": null,
-  "discontinued": false
+  "discontinued": false,
+  "pdfPage": 18
  },
  {
   "code": "13209",
@@ -207,7 +219,8 @@
   ],
   "price": 13002,
   "priceBySize": null,
-  "discontinued": false
+  "discontinued": false,
+  "pdfPage": 18
  },
  {
   "code": "13211",
@@ -221,7 +234,8 @@
   ],
   "price": 1485,
   "priceBySize": null,
-  "discontinued": false
+  "discontinued": false,
+  "pdfPage": 17
  },
  {
   "code": "14007",
@@ -235,7 +249,8 @@
   ],
   "price": 1265,
   "priceBySize": null,
-  "discontinued": false
+  "discontinued": false,
+  "pdfPage": 5
  },
  {
   "code": "14103",
@@ -249,7 +264,8 @@
   ],
   "price": 814,
   "priceBySize": null,
-  "discontinued": false
+  "discontinued": false,
+  "pdfPage": 17
  },
  {
   "code": "14109",
@@ -270,7 +286,8 @@
   ],
   "price": 12210,
   "priceBySize": null,
-  "discontinued": false
+  "discontinued": false,
+  "pdfPage": 17
  },
  {
   "code": "16003",
@@ -284,7 +301,8 @@
   ],
   "price": 55,
   "priceBySize": null,
-  "discontinued": true
+  "discontinued": true,
+  "pdfPage": 27
  },
  {
   "code": "16105",
@@ -298,7 +316,8 @@
   ],
   "price": 5379,
   "priceBySize": null,
-  "discontinued": false
+  "discontinued": false,
+  "pdfPage": 3
  },
  {
   "code": "16108",
@@ -312,7 +331,8 @@
   ],
   "price": 9240,
   "priceBySize": null,
-  "discontinued": false
+  "discontinued": false,
+  "pdfPage": 3
  },
  {
   "code": "17015",
@@ -326,7 +346,8 @@
   ],
   "price": 1034,
   "priceBySize": null,
-  "discontinued": true
+  "discontinued": true,
+  "pdfPage": 27
  },
  {
   "code": "17025",
@@ -340,7 +361,8 @@
   ],
   "price": 2442,
   "priceBySize": null,
-  "discontinued": false
+  "discontinued": false,
+  "pdfPage": 5
  },
  {
   "code": "17045",
@@ -354,7 +376,8 @@
   ],
   "price": 1177,
   "priceBySize": null,
-  "discontinued": true
+  "discontinued": true,
+  "pdfPage": 27
  },
  {
   "code": "17055",
@@ -368,7 +391,8 @@
   ],
   "price": 3366,
   "priceBySize": null,
-  "discontinued": false
+  "discontinued": false,
+  "pdfPage": 17
  },
  {
   "code": "17065",
@@ -382,7 +406,8 @@
   ],
   "price": 2915,
   "priceBySize": null,
-  "discontinued": false
+  "discontinued": false,
+  "pdfPage": 6
  },
  {
   "code": "17075",
@@ -396,7 +421,8 @@
   ],
   "price": 4103,
   "priceBySize": null,
-  "discontinued": false
+  "discontinued": false,
+  "pdfPage": 6
  },
  {
   "code": "18211",
@@ -410,7 +436,8 @@
   ],
   "price": 737,
   "priceBySize": null,
-  "discontinued": true
+  "discontinued": true,
+  "pdfPage": 27
  },
  {
   "code": "18233",
@@ -424,7 +451,8 @@
   ],
   "price": 748,
   "priceBySize": null,
-  "discontinued": true
+  "discontinued": true,
+  "pdfPage": 27
  },
  {
   "code": "18301",
@@ -438,7 +466,8 @@
   ],
   "price": 3916,
   "priceBySize": null,
-  "discontinued": false
+  "discontinued": false,
+  "pdfPage": 4
  },
  {
   "code": "18302",
@@ -452,7 +481,8 @@
   ],
   "price": 8283,
   "priceBySize": null,
-  "discontinued": false
+  "discontinued": false,
+  "pdfPage": 4
  },
  {
   "code": "18304",
@@ -466,7 +496,8 @@
   ],
   "price": 1628,
   "priceBySize": null,
-  "discontinued": false
+  "discontinued": false,
+  "pdfPage": 6
  },
  {
   "code": "19103",
@@ -480,7 +511,8 @@
   ],
   "price": 726,
   "priceBySize": null,
-  "discontinued": false
+  "discontinued": false,
+  "pdfPage": 5
  },
  {
   "code": "19108",
@@ -494,7 +526,8 @@
   ],
   "price": 2321,
   "priceBySize": null,
-  "discontinued": true
+  "discontinued": true,
+  "pdfPage": 27
  },
  {
   "code": "19308",
@@ -508,7 +541,8 @@
   ],
   "price": 5478,
   "priceBySize": null,
-  "discontinued": false
+  "discontinued": false,
+  "pdfPage": 5
  },
  {
   "code": "19311",
@@ -522,7 +556,8 @@
   ],
   "price": 1144,
   "priceBySize": null,
-  "discontinued": false
+  "discontinued": false,
+  "pdfPage": 5
  },
  {
   "code": "19404",
@@ -536,7 +571,8 @@
   ],
   "price": 550,
   "priceBySize": null,
-  "discontinued": false
+  "discontinued": false,
+  "pdfPage": 5
  },
  {
   "code": "19509",
@@ -559,7 +595,8 @@
   ],
   "price": 7634,
   "priceBySize": null,
-  "discontinued": false
+  "discontinued": false,
+  "pdfPage": 16
  },
  {
   "code": "2999-00",
@@ -576,7 +613,8 @@
   ],
   "price": 92433,
   "priceBySize": null,
-  "discontinued": false
+  "discontinued": false,
+  "pdfPage": 7
  },
  {
   "code": "5039-00",
@@ -598,7 +636,8 @@
   ],
   "price": 4246,
   "priceBySize": null,
-  "discontinued": false
+  "discontinued": false,
+  "pdfPage": 15
  },
  {
   "code": "5039-06",
@@ -620,7 +659,8 @@
   ],
   "price": 4048,
   "priceBySize": null,
-  "discontinued": false
+  "discontinued": false,
+  "pdfPage": 15
  },
  {
   "code": "5349-00",
@@ -645,7 +685,8 @@
   ],
   "price": 3146,
   "priceBySize": null,
-  "discontinued": false
+  "discontinued": false,
+  "pdfPage": 8
  },
  {
   "code": "5349-06",
@@ -670,7 +711,8 @@
   ],
   "price": 2607,
   "priceBySize": null,
-  "discontinued": false
+  "discontinued": false,
+  "pdfPage": 8
  },
  {
   "code": "5991-64",
@@ -684,7 +726,8 @@
   ],
   "price": 968,
   "priceBySize": null,
-  "discontinued": false
+  "discontinued": false,
+  "pdfPage": 24
  },
  {
   "code": "5991-74",
@@ -698,7 +741,8 @@
   ],
   "price": 1111,
   "priceBySize": null,
-  "discontinued": false
+  "discontinued": false,
+  "pdfPage": 24
  },
  {
   "code": "7229-00",
@@ -721,7 +765,8 @@
   ],
   "price": 1111,
   "priceBySize": null,
-  "discontinued": true
+  "discontinued": true,
+  "pdfPage": 27
  },
  {
   "code": "7229-06",
@@ -744,7 +789,8 @@
   ],
   "price": 1012,
   "priceBySize": null,
-  "discontinued": true
+  "discontinued": true,
+  "pdfPage": 27
  },
  {
   "code": "7339-06",
@@ -767,7 +813,8 @@
   ],
   "price": 748,
   "priceBySize": null,
-  "discontinued": true
+  "discontinued": true,
+  "pdfPage": 27
  },
  {
   "code": "7369-00",
@@ -792,7 +839,8 @@
   ],
   "price": 2409,
   "priceBySize": null,
-  "discontinued": false
+  "discontinued": false,
+  "pdfPage": 11
  },
  {
   "code": "7369-01",
@@ -817,7 +865,8 @@
   ],
   "price": 2145,
   "priceBySize": null,
-  "discontinued": false
+  "discontinued": false,
+  "pdfPage": 12
  },
  {
   "code": "7369-06",
@@ -842,7 +891,8 @@
   ],
   "price": 2024,
   "priceBySize": null,
-  "discontinued": false
+  "discontinued": false,
+  "pdfPage": 12
  },
  {
   "code": "7369-10",
@@ -867,7 +917,8 @@
   ],
   "price": 2530,
   "priceBySize": null,
-  "discontinued": false
+  "discontinued": false,
+  "pdfPage": 13
  },
  {
   "code": "7369-11",
@@ -892,7 +943,8 @@
   ],
   "price": 2277,
   "priceBySize": null,
-  "discontinued": false
+  "discontinued": false,
+  "pdfPage": 13
  },
  {
   "code": "7369-16",
@@ -917,7 +969,8 @@
   ],
   "price": 2123,
   "priceBySize": null,
-  "discontinued": false
+  "discontinued": false,
+  "pdfPage": 13
  },
  {
   "code": "7369-90",
@@ -932,7 +985,8 @@
   ],
   "price": 484,
   "priceBySize": null,
-  "discontinued": false
+  "discontinued": false,
+  "pdfPage": 12
  },
  {
   "code": "7439-06",
@@ -955,7 +1009,8 @@
   ],
   "price": 770,
   "priceBySize": null,
-  "discontinued": true
+  "discontinued": true,
+  "pdfPage": 27
  },
  {
   "code": "7539-00",
@@ -978,7 +1033,8 @@
   ],
   "price": 2277,
   "priceBySize": null,
-  "discontinued": false
+  "discontinued": false,
+  "pdfPage": 9
  },
  {
   "code": "7539-01",
@@ -1001,7 +1057,8 @@
   ],
   "price": 2123,
   "priceBySize": null,
-  "discontinued": false
+  "discontinued": false,
+  "pdfPage": 10
  },
  {
   "code": "7539-06",
@@ -1024,7 +1081,8 @@
   ],
   "price": 1914,
   "priceBySize": null,
-  "discontinued": false
+  "discontinued": false,
+  "pdfPage": 10
  },
  {
   "code": "7789-20",
@@ -1045,7 +1103,8 @@
   ],
   "price": 1991,
   "priceBySize": null,
-  "discontinued": true
+  "discontinued": true,
+  "pdfPage": 27
  },
  {
   "code": "7789-24",
@@ -1065,7 +1124,8 @@
   ],
   "price": 1441,
   "priceBySize": null,
-  "discontinued": true
+  "discontinued": true,
+  "pdfPage": 27
  },
  {
   "code": "8001-94",
@@ -1080,7 +1140,8 @@
   ],
   "price": 594,
   "priceBySize": null,
-  "discontinued": false
+  "discontinued": false,
+  "pdfPage": 22
  },
  {
   "code": "8001-95",
@@ -1095,7 +1156,8 @@
   ],
   "price": 385,
   "priceBySize": null,
-  "discontinued": false
+  "discontinued": false,
+  "pdfPage": 22
  },
  {
   "code": "80036",
@@ -1113,7 +1175,8 @@
    "F": 1419,
    "3L": 1485
   },
-  "discontinued": false
+  "discontinued": false,
+  "pdfPage": 20
  },
  {
   "code": "80056",
@@ -1128,7 +1191,8 @@
   ],
   "price": 1870,
   "priceBySize": null,
-  "discontinued": false
+  "discontinued": false,
+  "pdfPage": 19
  },
  {
   "code": "80064",
@@ -1142,7 +1206,8 @@
   ],
   "price": 473,
   "priceBySize": null,
-  "discontinued": false
+  "discontinued": false,
+  "pdfPage": 23
  },
  {
   "code": "8329-01",
@@ -1165,7 +1230,8 @@
   ],
   "price": 935,
   "priceBySize": null,
-  "discontinued": true
+  "discontinued": true,
+  "pdfPage": 27
  },
  {
   "code": "8329-06",
@@ -1188,7 +1254,8 @@
   ],
   "price": 913,
   "priceBySize": null,
-  "discontinued": true
+  "discontinued": true,
+  "pdfPage": 27
  },
  {
   "code": "8349-00",
@@ -1210,7 +1277,8 @@
   ],
   "price": 3454,
   "priceBySize": null,
-  "discontinued": false
+  "discontinued": false,
+  "pdfPage": 14
  },
  {
   "code": "8349-01",
@@ -1232,7 +1300,8 @@
   ],
   "price": 3267,
   "priceBySize": null,
-  "discontinued": false
+  "discontinued": false,
+  "pdfPage": 14
  },
  {
   "code": "8349-06",
@@ -1254,7 +1323,8 @@
   ],
   "price": 3135,
   "priceBySize": null,
-  "discontinued": false
+  "discontinued": false,
+  "pdfPage": 14
  },
  {
   "code": "8991-94",
@@ -1268,6 +1338,7 @@
   ],
   "price": 4521,
   "priceBySize": null,
-  "discontinued": false
+  "discontinued": false,
+  "pdfPage": 21
  }
 ]

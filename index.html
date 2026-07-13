@@ -112,6 +112,8 @@
   }
   .product-head{ display:flex; justify-content:space-between; align-items:flex-start; gap:10px; }
   .product-head .code{ font-family:'Oswald',sans-serif; font-size:20px; font-weight:600; color:var(--navy); letter-spacing:0.02em; }
+  .pdf-link{ font-family:'Inter',sans-serif; font-size:11px; font-weight:600; color:var(--stitch); text-decoration:none; margin-left:6px; white-space:nowrap; }
+  .pdf-link:hover{ text-decoration:underline; }
   .product-head h3{ margin:2px 0 0; font-size:13px; color:var(--ink-soft); text-transform:none; letter-spacing:0; font-weight:500; font-family:'Inter',sans-serif; }
   .badge{
     font-size:10px; background:#F1E4DC; color:var(--stitch);
@@ -241,7 +243,7 @@
 </div>
 
 <script>
-  const SITE_PASSCODE = 'nakamura2026';
+  const GAS_URL = 'https://script.google.com/macros/s/AKfycbypoOi3DUWQn4f7QsXjvyqakVz7IWVNoU7JYdOEdzs4pf936i2KgbLH1O5TFH0_xcbK/exec';
   const passGate = document.getElementById('passGate');
 
   function unlockSite(){
@@ -249,21 +251,37 @@
     document.getElementById('siteContent').style.display = 'block';
   }
 
-  if (sessionStorage.getItem('ob_auth') === '1') {
-    passGate.style.display = 'none';
-    document.getElementById('siteContent').style.display = 'block';
+  if (sessionStorage.getItem('ob_token')) {
+    unlockSite();
   }
 
   document.getElementById('passSubmit').addEventListener('click', tryUnlock);
   document.getElementById('passInput').addEventListener('keydown', (e) => { if (e.key === 'Enter') tryUnlock(); });
 
-  function tryUnlock(){
+  async function tryUnlock(){
     const val = document.getElementById('passInput').value.trim();
-    if (val === SITE_PASSCODE) {
-      sessionStorage.setItem('ob_auth', '1');
-      unlockSite();
-    } else {
-      document.getElementById('passError').style.display = 'block';
+    const errorEl = document.getElementById('passError');
+    const btn = document.getElementById('passSubmit');
+    errorEl.style.display = 'none';
+    if (!val) return;
+    btn.disabled = true;
+    btn.textContent = '確認中...';
+    try {
+      const res = await fetch(GAS_URL + '?action=login&passcode=' + encodeURIComponent(val));
+      const result = await res.json();
+      if (result.success) {
+        sessionStorage.setItem('ob_token', result.token);
+        unlockSite();
+      } else {
+        errorEl.textContent = result.message || '合い言葉が違います。';
+        errorEl.style.display = 'block';
+      }
+    } catch (err) {
+      errorEl.textContent = '通信エラーが発生しました。時間をおいて再度お試しください。';
+      errorEl.style.display = 'block';
+    } finally {
+      btn.disabled = false;
+      btn.textContent = '入る';
     }
   }
 </script>
@@ -339,7 +357,6 @@
 </div>
 
 <script>
-  const GAS_URL = 'https://script.google.com/macros/s/AKfycbypoOi3DUWQn4f7QsXjvyqakVz7IWVNoU7JYdOEdzs4pf936i2KgbLH1O5TFH0_xcbK/exec';
   const DEADLINE = new Date('2026-07-27T23:59:59+09:00');
   const PRODUCTS_URL = 'products.json';
 
@@ -414,7 +431,7 @@
         card.innerHTML = `
           <div class="product-head">
             <div>
-              <p class="code">${p.code}</p>
+              <p class="code">${p.code} ${p.pdfPage ? `<a href="catalog.pdf#page=${p.pdfPage}" target="_blank" class="pdf-link">📄カタログで見る</a>` : ''}</p>
               <h3>${p.name}</h3>
             </div>
             ${p.discontinued ? '<span class="badge">現品限り</span>' : ''}
@@ -491,10 +508,16 @@
       return;
     }
     cartLinesEl.innerHTML = cart.map((l, i) => `
-      <div class="cart-line">
+      <div class="cart-line" style="align-items:flex-start;">
         <div>
-          <div>${l.name} ${l.color ? '／ '+l.color : ''} ／ ${l.size} × ${l.qty}</div>
-          <div class="meta">品番 ${l.code}　¥${l.lineTotal.toLocaleString()}</div>
+          <div>${l.name} ${l.color ? '／ '+l.color : ''} ／ ${l.size}</div>
+          <div class="meta">品番 ${l.code}　単価¥${l.unitPrice.toLocaleString()}</div>
+          <div style="display:flex;align-items:center;gap:8px;margin-top:6px;">
+            <div class="qty-btn cart-minus" data-idx="${i}" style="width:26px;height:26px;font-size:14px;">-</div>
+            <span style="font-family:'Oswald',sans-serif;min-width:18px;text-align:center;">${l.qty}</span>
+            <div class="qty-btn cart-plus" data-idx="${i}" style="width:26px;height:26px;font-size:14px;">+</div>
+            <span style="margin-left:6px;font-weight:600;">¥${l.lineTotal.toLocaleString()}</span>
+          </div>
         </div>
         <button class="remove" data-idx="${i}">削除</button>
       </div>
@@ -504,6 +527,28 @@
         cart.splice(Number(btn.dataset.idx), 1);
         renderCartLines();
         updateCartBar();
+      });
+    });
+    cartLinesEl.querySelectorAll('.cart-minus').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const idx = Number(btn.dataset.idx);
+        if (cart[idx].qty > 1) {
+          cart[idx].qty--;
+          cart[idx].lineTotal = cart[idx].qty * cart[idx].unitPrice;
+          renderCartLines();
+          updateCartBar();
+        }
+      });
+    });
+    cartLinesEl.querySelectorAll('.cart-plus').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const idx = Number(btn.dataset.idx);
+        if (cart[idx].qty < 20) {
+          cart[idx].qty++;
+          cart[idx].lineTotal = cart[idx].qty * cart[idx].unitPrice;
+          renderCartLines();
+          updateCartBar();
+        }
       });
     });
     const total = cart.reduce((s,l) => s + l.lineTotal, 0);
