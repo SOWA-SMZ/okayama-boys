@@ -210,6 +210,16 @@
 
   .empty-cart{ text-align:center; color:var(--ink-soft); font-size:13px; padding:30px 0; }
 
+  .status-line{
+    display:flex; justify-content:space-between; align-items:center;
+    background:var(--panel); border:1px solid var(--line); border-radius:10px;
+    padding:10px 12px; margin-bottom:8px; font-size:13px;
+  }
+  .status-line .meta{ color:var(--ink-soft); font-size:11px; }
+  .status-ok{ background:#EAF3EC; color:#245C3B; font-weight:700; padding:4px 12px; border-radius:999px; font-size:13px; }
+  .status-ng{ background:#FBEAE7; color:#8A2E22; font-weight:700; padding:4px 12px; border-radius:999px; font-size:13px; }
+  .status-pending{ background:#F1EEE4; color:var(--ink-soft); font-weight:600; padding:4px 12px; border-radius:999px; font-size:12px; }
+
   .closed-banner{
     background:#3A2C2C; color:#F3E6DE; padding:18px; border-radius:var(--radius);
     text-align:center; font-family:'Oswald',sans-serif; letter-spacing:0.05em; margin-top:20px;
@@ -281,8 +291,22 @@
 
 <footer>
   岡山ボーイズ ／ SOWA社販注文サイト<br>
-  お問い合わせは監督・スタッフまでご連絡ください。
+  お問い合わせは監督・スタッフまでご連絡ください。<br>
+  <button id="openStatusBtn" style="margin-top:10px;background:none;border:1px solid var(--line);border-radius:999px;padding:7px 16px;font-size:12px;color:var(--ink-soft);cursor:pointer;font-family:'Inter',sans-serif;">注文状況を確認する（在庫○×）</button>
 </footer>
+
+<div class="overlay" id="statusOverlay">
+  <div class="sheet">
+    <div class="sheet-head">
+      <h2>注文状況の確認</h2>
+      <button class="close-btn" id="closeStatusBtn">&times;</button>
+    </div>
+    <label for="statusNumberInput">背番号</label>
+    <input type="text" id="statusNumberInput" placeholder="例）7">
+    <button id="statusCheckBtn" class="submit-btn" style="margin-top:14px;">確認する</button>
+    <div id="statusResult" style="margin-top:16px;"></div>
+  </div>
+</div>
 
 <div class="cart-bar" id="cartBar" style="display:none;">
   <span class="info" id="cartInfo">0点 ／ ¥0</span>
@@ -548,6 +572,50 @@
     } finally {
       submitBtn.disabled = false;
       submitBtn.textContent = 'この内容で注文する';
+    }
+  });
+
+  // ----- 注文状況確認 -----
+  const statusOverlay = document.getElementById('statusOverlay');
+  document.getElementById('openStatusBtn').addEventListener('click', () => {
+    statusOverlay.classList.add('open');
+  });
+  document.getElementById('closeStatusBtn').addEventListener('click', () => {
+    statusOverlay.classList.remove('open');
+  });
+
+  document.getElementById('statusCheckBtn').addEventListener('click', async () => {
+    const number = document.getElementById('statusNumberInput').value.trim();
+    const resultEl = document.getElementById('statusResult');
+    if (!number) {
+      resultEl.innerHTML = '<p class="status-msg error" style="display:block;">背番号を入力してください。</p>';
+      return;
+    }
+    resultEl.innerHTML = '<p style="font-size:13px;color:var(--ink-soft);">確認中...</p>';
+    try {
+      const res = await fetch(GAS_URL + '?action=check&number=' + encodeURIComponent(number));
+      const result = await res.json();
+      if (!result.success) {
+        resultEl.innerHTML = '<p class="status-msg error" style="display:block;">' + (result.message || '見つかりませんでした。') + '</p>';
+        return;
+      }
+      resultEl.innerHTML = result.items.map(it => {
+        let badge;
+        if (it.status === '○') badge = '<span class="status-ok">○ 在庫あり</span>';
+        else if (it.status === '×') badge = '<span class="status-ng">× 在庫なし</span>';
+        else badge = '<span class="status-pending">未確認</span>';
+        return `
+          <div class="status-line">
+            <div>
+              <div>${it.name} ${it.color ? '／ '+it.color : ''} ／ ${it.size} × ${it.qty}</div>
+              <div class="meta">品番 ${it.code}　¥${Number(it.lineTotal).toLocaleString()}</div>
+            </div>
+            ${badge}
+          </div>
+        `;
+      }).join('');
+    } catch (err) {
+      resultEl.innerHTML = '<p class="status-msg error" style="display:block;">通信エラーが発生しました。</p>';
     }
   });
 
