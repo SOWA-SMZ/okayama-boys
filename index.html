@@ -116,7 +116,8 @@
   .qty-add-row{ margin-top:14px; display:flex; align-items:center; gap:10px; }
   .qty-stepper{ display:flex; align-items:center; gap:8px; }
   .qty-btn{
-    width:30px;height:30px;border-radius:50%;border:1px solid #CFC7B0;background:#FCFBF7;font-size:16px;cursor:pointer;line-height:1;
+    width:30px;height:30px;border-radius:50%;border:1px solid #CFC7B0;background:#FCFBF7;font-size:16px;cursor:pointer;
+    display:flex;align-items:center;justify-content:center;line-height:1;padding:0;user-select:none;
   }
   .qty-value{ font-family:'Oswald',sans-serif; font-size:15px; min-width:20px; text-align:center; }
   .add-btn{
@@ -332,9 +333,9 @@
           <div class="option-row"><p class="option-label">サイズ</p><div class="chip-group size-group">${sizeChips}</div></div>
           <div class="qty-add-row">
             <div class="qty-stepper">
-              <div class="qty-btn minus">−</div>
+              <div class="qty-btn minus">-</div>
               <div class="qty-value">1</div>
-              <div class="qty-btn plus">＋</div>
+              <div class="qty-btn plus">+</div>
             </div>
             <button class="add-btn">カートに追加</button>
           </div>
