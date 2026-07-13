@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow, noarchive">
 <title>岡山ボーイズ 注文サイト</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -218,6 +219,46 @@
 </style>
 </head>
 <body>
+
+<div id="passGate" style="position:fixed;inset:0;background:#101B33;z-index:999;display:flex;align-items:center;justify-content:center;padding:20px;">
+  <div style="background:#fff;border-radius:14px;padding:28px 24px;max-width:320px;width:100%;text-align:center;">
+    <img src="logo.png" alt="岡山ボーイズ" style="width:56px;margin-bottom:14px;">
+    <p style="font-family:'Oswald',sans-serif;letter-spacing:0.08em;color:#1B2A4A;font-size:15px;margin:0 0 14px;text-transform:uppercase;">OKAYAMA BOYS 注文サイト</p>
+    <input type="password" id="passInput" placeholder="合い言葉を入力" style="width:100%;padding:11px 12px;border:1px solid #CFC7B0;border-radius:10px;font-size:15px;margin-bottom:10px;box-sizing:border-box;">
+    <button id="passSubmit" style="width:100%;padding:12px;border:none;border-radius:999px;background:#A23B2E;color:#fff;font-family:'Oswald',sans-serif;font-size:14px;letter-spacing:0.06em;cursor:pointer;">入る</button>
+    <p id="passError" style="color:#8A2E22;font-size:12.5px;margin:10px 0 0;display:none;">合い言葉が違います。</p>
+  </div>
+</div>
+
+<script>
+  const SITE_PASSCODE = 'nakamura2026';
+  const passGate = document.getElementById('passGate');
+
+  function unlockSite(){
+    passGate.style.display = 'none';
+    document.getElementById('siteContent').style.display = 'block';
+  }
+
+  if (sessionStorage.getItem('ob_auth') === '1') {
+    passGate.style.display = 'none';
+    document.getElementById('siteContent').style.display = 'block';
+  }
+
+  document.getElementById('passSubmit').addEventListener('click', tryUnlock);
+  document.getElementById('passInput').addEventListener('keydown', (e) => { if (e.key === 'Enter') tryUnlock(); });
+
+  function tryUnlock(){
+    const val = document.getElementById('passInput').value.trim();
+    if (val === SITE_PASSCODE) {
+      sessionStorage.setItem('ob_auth', '1');
+      unlockSite();
+    } else {
+      document.getElementById('passError').style.display = 'block';
+    }
+  }
+</script>
+
+<div id="siteContent" style="display:none;">
 
 <header>
   <img src="logo.png" alt="岡山ボーイズ ロゴ" class="logo-img">
@@ -531,6 +572,8 @@
   }
   init();
 </script>
+
+</div>
 
 </body>
 </html>
