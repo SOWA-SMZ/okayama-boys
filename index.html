@@ -302,14 +302,8 @@
     </div>
 
     <form id="orderForm">
-      <label for="playerName">選手名<span aria-hidden="true">*</span></label>
-      <input type="text" id="playerName" required placeholder="例）桑和 太郎">
-
-      <label for="guardianName">保護者氏名</label>
-      <input type="text" id="guardianName" placeholder="任意">
-
-      <label for="contact">保護者連絡先（電話 または メール）<span aria-hidden="true">*</span></label>
-      <input type="text" id="contact" required placeholder="090-XXXX-XXXX または example@mail.com">
+      <label for="playerName">選手背番号<span aria-hidden="true">*</span></label>
+      <input type="text" id="playerName" required placeholder="例）7">
 
       <label for="note">備考</label>
       <textarea id="note" placeholder="サイズ相談やその他ご要望（任意）"></textarea>
@@ -514,17 +508,14 @@
       return;
     }
     const playerName = document.getElementById('playerName').value.trim();
-    const contact = document.getElementById('contact').value.trim();
-    if (!playerName || !contact) {
+    if (!playerName) {
       statusMsg.className = 'status-msg error';
-      statusMsg.textContent = '選手名と保護者連絡先を入力してください。';
+      statusMsg.textContent = '背番号を入力してください。';
       return;
     }
 
     const payload = {
       playerName,
-      guardianName: document.getElementById('guardianName').value.trim(),
-      contact,
       note: document.getElementById('note').value.trim(),
       items: cart
     };
