@@ -1,0 +1,1273 @@
+[
+ {
+  "code": "0129-01",
+  "name": "EF半袖ブルゾン",
+  "category": "空調服(ブルゾン)",
+  "colors": [
+   "アーミー",
+   "シルバーグレー",
+   "ネイビー",
+   "ブラック"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "L",
+   "LL",
+   "3L",
+   "4L",
+   "6L"
+  ],
+  "price": 1133,
+  "priceBySize": null,
+  "discontinued": true
+ },
+ {
+  "code": "0129-07",
+  "name": "EFハーフパンツ",
+  "category": "空調服(パンツ)",
+  "colors": [
+   "ブラック"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "L",
+   "LL",
+   "3L",
+   "4L"
+  ],
+  "price": 1111,
+  "priceBySize": null,
+  "discontinued": true
+ },
+ {
+  "code": "0991-64",
+  "name": "アイスストロング",
+  "category": "アイスネックリング",
+  "colors": [
+   "イエロー",
+   "ブルー",
+   "レッド"
+  ],
+  "sizes": [
+   "F"
+  ],
+  "price": 1815,
+  "priceBySize": null,
+  "discontinued": false
+ },
+ {
+  "code": "12011",
+  "name": "フリーファン",
+  "category": "ファン・バッテリー",
+  "colors": [
+   "ブラック"
+  ],
+  "sizes": [
+   "F"
+  ],
+  "price": 2277,
+  "priceBySize": null,
+  "discontinued": false
+ },
+ {
+  "code": "12013",
+  "name": "スイッチケーブル",
+  "category": "部品",
+  "colors": [
+   "ブラック"
+  ],
+  "sizes": [
+   "F"
+  ],
+  "price": 660,
+  "priceBySize": null,
+  "discontinued": false
+ },
+ {
+  "code": "13003",
+  "name": "保冷剤(1個)",
+  "category": "消耗品",
+  "colors": [
+   "ホワイト"
+  ],
+  "sizes": [
+   "F"
+  ],
+  "price": 209,
+  "priceBySize": null,
+  "discontinued": false
+ },
+ {
+  "code": "13004",
+  "name": "保冷剤(1個)",
+  "category": "消耗品",
+  "colors": [
+   "ホワイト"
+  ],
+  "sizes": [
+   "F"
+  ],
+  "price": 220,
+  "priceBySize": null,
+  "discontinued": false
+ },
+ {
+  "code": "13064",
+  "name": "保冷剤(ネッククーラー専用)",
+  "category": "消耗品",
+  "colors": [
+   "ホワイト"
+  ],
+  "sizes": [
+   "F"
+  ],
+  "price": 198,
+  "priceBySize": null,
+  "discontinued": false
+ },
+ {
+  "code": "13106",
+  "name": "マルチケース",
+  "category": "部品",
+  "colors": [
+   "ブラック"
+  ],
+  "sizes": [
+   "F"
+  ],
+  "price": 1287,
+  "priceBySize": null,
+  "discontinued": false
+ },
+ {
+  "code": "13109",
+  "name": "アイスパッド・ベストセット",
+  "category": "空調服(セット)",
+  "colors": [
+   "ブラック"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "L",
+   "LL",
+   "3L",
+   "4L",
+   "6L"
+  ],
+  "price": 5258,
+  "priceBySize": null,
+  "discontinued": true
+ },
+ {
+  "code": "13111",
+  "name": "アイスパッド(1個)",
+  "category": "部品",
+  "colors": [
+   "ブラック"
+  ],
+  "sizes": [
+   "F"
+  ],
+  "price": 616,
+  "priceBySize": null,
+  "discontinued": true
+ },
+ {
+  "code": "13203",
+  "name": "スイッチケーブル",
+  "category": "部品",
+  "colors": [
+   "ブラック"
+  ],
+  "sizes": [
+   "F"
+  ],
+  "price": 792,
+  "priceBySize": null,
+  "discontinued": false
+ },
+ {
+  "code": "13209",
+  "name": "アイスパッド・ベストセット",
+  "category": "空調服(セット)",
+  "colors": [
+   "ブラック"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "L",
+   "LL",
+   "3L",
+   "4L",
+   "6L"
+  ],
+  "price": 13002,
+  "priceBySize": null,
+  "discontinued": false
+ },
+ {
+  "code": "13211",
+  "name": "アイスパッド単品",
+  "category": "部品",
+  "colors": [
+   "ブラック"
+  ],
+  "sizes": [
+   "F"
+  ],
+  "price": 1485,
+  "priceBySize": null,
+  "discontinued": false
+ },
+ {
+  "code": "14007",
+  "name": "フィルター(50枚入り)",
+  "category": "消耗品",
+  "colors": [
+   "ホワイト"
+  ],
+  "sizes": [
+   "F"
+  ],
+  "price": 1265,
+  "priceBySize": null,
+  "discontinued": false
+ },
+ {
+  "code": "14103",
+  "name": "スイッチケーブル",
+  "category": "部品",
+  "colors": [
+   "ブラック"
+  ],
+  "sizes": [
+   "F"
+  ],
+  "price": 814,
+  "priceBySize": null,
+  "discontinued": false
+ },
+ {
+  "code": "14109",
+  "name": "アイスファンセット",
+  "category": "空調服(セット)",
+  "colors": [
+   "シルバーグレー",
+   "ネイビー"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "L",
+   "LL",
+   "3L",
+   "4L",
+   "6L"
+  ],
+  "price": 12210,
+  "priceBySize": null,
+  "discontinued": false
+ },
+ {
+  "code": "16003",
+  "name": "ファンケーブル",
+  "category": "部品",
+  "colors": [
+   "-"
+  ],
+  "sizes": [
+   "F"
+  ],
+  "price": 55,
+  "priceBySize": null,
+  "discontinued": true
+ },
+ {
+  "code": "16105",
+  "name": "バッテリー",
+  "category": "ファン・バッテリー",
+  "colors": [
+   "ブラック"
+  ],
+  "sizes": [
+   "F"
+  ],
+  "price": 5379,
+  "priceBySize": null,
+  "discontinued": false
+ },
+ {
+  "code": "16108",
+  "name": "デバイスセット",
+  "category": "ファン・バッテリー",
+  "colors": [
+   "ブラック"
+  ],
+  "sizes": [
+   "F"
+  ],
+  "price": 9240,
+  "priceBySize": null,
+  "discontinued": false
+ },
+ {
+  "code": "17015",
+  "name": "モバイルチャージャー",
+  "category": "部品",
+  "colors": [
+   "ブラック"
+  ],
+  "sizes": [
+   "F"
+  ],
+  "price": 1034,
+  "priceBySize": null,
+  "discontinued": true
+ },
+ {
+  "code": "17025",
+  "name": "モバイルチャージャー",
+  "category": "部品",
+  "colors": [
+   "ブラック"
+  ],
+  "sizes": [
+   "F"
+  ],
+  "price": 2442,
+  "priceBySize": null,
+  "discontinued": false
+ },
+ {
+  "code": "17045",
+  "name": "モバイルチャージャー20k",
+  "category": "部品",
+  "colors": [
+   "ブラック"
+  ],
+  "sizes": [
+   "F"
+  ],
+  "price": 1177,
+  "priceBySize": null,
+  "discontinued": true
+ },
+ {
+  "code": "17055",
+  "name": "モバイルチャージャー",
+  "category": "部品",
+  "colors": [
+   "ブラック"
+  ],
+  "sizes": [
+   "F"
+  ],
+  "price": 3366,
+  "priceBySize": null,
+  "discontinued": false
+ },
+ {
+  "code": "17065",
+  "name": "モバイルチャージャー10000mAh",
+  "category": "部品",
+  "colors": [
+   "ブラック"
+  ],
+  "sizes": [
+   "F"
+  ],
+  "price": 2915,
+  "priceBySize": null,
+  "discontinued": false
+ },
+ {
+  "code": "17075",
+  "name": "モバイルチャージャー20000mAh",
+  "category": "部品",
+  "colors": [
+   "ブラック"
+  ],
+  "sizes": [
+   "F"
+  ],
+  "price": 4103,
+  "priceBySize": null,
+  "discontinued": false
+ },
+ {
+  "code": "18211",
+  "name": "18211 ファン単品",
+  "category": "部品",
+  "colors": [
+   "ブラック"
+  ],
+  "sizes": [
+   "F"
+  ],
+  "price": 737,
+  "priceBySize": null,
+  "discontinued": true
+ },
+ {
+  "code": "18233",
+  "name": "18233 Wオープンファン単品",
+  "category": "部品",
+  "colors": [
+   "ブラック"
+  ],
+  "sizes": [
+   "F"
+  ],
+  "price": 748,
+  "priceBySize": null,
+  "discontinued": true
+ },
+ {
+  "code": "18301",
+  "name": "ファンセット",
+  "category": "ファン・バッテリー",
+  "colors": [
+   "ブラック"
+  ],
+  "sizes": [
+   "F"
+  ],
+  "price": 3916,
+  "priceBySize": null,
+  "discontinued": false
+ },
+ {
+  "code": "18302",
+  "name": "バッテリーセット",
+  "category": "ファン・バッテリー",
+  "colors": [
+   "ブラック"
+  ],
+  "sizes": [
+   "F"
+  ],
+  "price": 8283,
+  "priceBySize": null,
+  "discontinued": false
+ },
+ {
+  "code": "18304",
+  "name": "ACアダプター(PD)",
+  "category": "部品",
+  "colors": [
+   "ホワイト"
+  ],
+  "sizes": [
+   "F"
+  ],
+  "price": 1628,
+  "priceBySize": null,
+  "discontinued": false
+ },
+ {
+  "code": "19103",
+  "name": "スイッチケーブル",
+  "category": "部品",
+  "colors": [
+   "-"
+  ],
+  "sizes": [
+   "F"
+  ],
+  "price": 726,
+  "priceBySize": null,
+  "discontinued": false
+ },
+ {
+  "code": "19108",
+  "name": "デバイスセット",
+  "category": "ファン・バッテリー",
+  "colors": [
+   "-"
+  ],
+  "sizes": [
+   "F"
+  ],
+  "price": 2321,
+  "priceBySize": null,
+  "discontinued": true
+ },
+ {
+  "code": "19308",
+  "name": "デバイスセット",
+  "category": "ファン・バッテリー",
+  "colors": [
+   "-"
+  ],
+  "sizes": [
+   "F"
+  ],
+  "price": 5478,
+  "priceBySize": null,
+  "discontinued": false
+ },
+ {
+  "code": "19311",
+  "name": "ファン単体",
+  "category": "部品",
+  "colors": [
+   "ブラック"
+  ],
+  "sizes": [
+   "F"
+  ],
+  "price": 1144,
+  "priceBySize": null,
+  "discontinued": false
+ },
+ {
+  "code": "19404",
+  "name": "ACアダプタ(QC)",
+  "category": "部品",
+  "colors": [
+   "ブラック"
+  ],
+  "sizes": [
+   "F"
+  ],
+  "price": 550,
+  "priceBySize": null,
+  "discontinued": false
+ },
+ {
+  "code": "19509",
+  "name": "コンプリートセット",
+  "category": "空調服(セット)",
+  "colors": [
+   "シルバーグレー",
+   "ネイビー",
+   "ブラック",
+   "ブルー"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "L",
+   "LL",
+   "3L",
+   "4L",
+   "6L"
+  ],
+  "price": 7634,
+  "priceBySize": null,
+  "discontinued": false
+ },
+ {
+  "code": "2999-00",
+  "name": "エアフロープロ(防爆EFウエア)",
+  "category": "空調服(ブルゾン)",
+  "colors": [
+   "ネイビー"
+  ],
+  "sizes": [
+   "M",
+   "L",
+   "LL",
+   "3L"
+  ],
+  "price": 92433,
+  "priceBySize": null,
+  "discontinued": false
+ },
+ {
+  "code": "5039-00",
+  "name": "EF長袖ブルゾン",
+  "category": "空調服(ブルゾン)",
+  "colors": [
+   "カーキ",
+   "シルバーグレー",
+   "ネイビー"
+  ],
+  "sizes": [
+   "M",
+   "L",
+   "LL",
+   "3L",
+   "4L",
+   "5L",
+   "6L"
+  ],
+  "price": 4246,
+  "priceBySize": null,
+  "discontinued": false
+ },
+ {
+  "code": "5039-06",
+  "name": "EFベスト",
+  "category": "空調服(ベスト)",
+  "colors": [
+   "カーキ",
+   "シルバーグレー",
+   "ネイビー"
+  ],
+  "sizes": [
+   "M",
+   "L",
+   "LL",
+   "3L",
+   "4L",
+   "5L",
+   "6L"
+  ],
+  "price": 4048,
+  "priceBySize": null,
+  "discontinued": false
+ },
+ {
+  "code": "5349-00",
+  "name": "長袖EFブルゾン",
+  "category": "空調服(ブルゾン)",
+  "colors": [
+   "グレー",
+   "ネイビー",
+   "ブルー",
+   "ライトブラウン"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "L",
+   "LL",
+   "3L",
+   "4L",
+   "5L",
+   "6L",
+   "8L"
+  ],
+  "price": 3146,
+  "priceBySize": null,
+  "discontinued": false
+ },
+ {
+  "code": "5349-06",
+  "name": "EFベスト",
+  "category": "空調服(ベスト)",
+  "colors": [
+   "グレー",
+   "ネイビー",
+   "ブルー",
+   "ライトブラウン"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "L",
+   "LL",
+   "3L",
+   "4L",
+   "5L",
+   "6L",
+   "8L"
+  ],
+  "price": 2607,
+  "priceBySize": null,
+  "discontinued": false
+ },
+ {
+  "code": "5991-64",
+  "name": "マジクールレギュラー",
+  "category": "ネッククーラー",
+  "colors": [
+   "ネイビー"
+  ],
+  "sizes": [
+   "M"
+  ],
+  "price": 968,
+  "priceBySize": null,
+  "discontinued": false
+ },
+ {
+  "code": "5991-74",
+  "name": "マジクールEX",
+  "category": "ネッククーラー",
+  "colors": [
+   "ネイビー"
+  ],
+  "sizes": [
+   "L"
+  ],
+  "price": 1111,
+  "priceBySize": null,
+  "discontinued": false
+ },
+ {
+  "code": "7229-00",
+  "name": "EF用長袖ブルゾン",
+  "category": "空調服(ブルゾン)",
+  "colors": [
+   "シルバーグレー",
+   "ネイビー",
+   "ライトブルー"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "L",
+   "LL",
+   "3L",
+   "4L",
+   "5L",
+   "6L"
+  ],
+  "price": 1111,
+  "priceBySize": null,
+  "discontinued": true
+ },
+ {
+  "code": "7229-06",
+  "name": "EF用ベスト",
+  "category": "空調服(ベスト)",
+  "colors": [
+   "シルバーグレー",
+   "ネイビー",
+   "ライトブルー"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "L",
+   "LL",
+   "3L",
+   "4L",
+   "5L",
+   "6L"
+  ],
+  "price": 1012,
+  "priceBySize": null,
+  "discontinued": true
+ },
+ {
+  "code": "7339-06",
+  "name": "EF用ベスト",
+  "category": "空調服(ベスト)",
+  "colors": [
+   "アーミー",
+   "シルバーグレー",
+   "ネイビー",
+   "ベージュ"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "L",
+   "LL",
+   "3L",
+   "4L",
+   "6L"
+  ],
+  "price": 748,
+  "priceBySize": null,
+  "discontinued": true
+ },
+ {
+  "code": "7369-00",
+  "name": "長袖EFブルゾン",
+  "category": "空調服(ブルゾン)",
+  "colors": [
+   "シルバーグレー",
+   "ネイビー",
+   "ブルー",
+   "ライトブラウン"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "L",
+   "LL",
+   "3L",
+   "4L",
+   "5L",
+   "6L",
+   "8L"
+  ],
+  "price": 2409,
+  "priceBySize": null,
+  "discontinued": false
+ },
+ {
+  "code": "7369-01",
+  "name": "半袖EFブルゾン",
+  "category": "空調服(ブルゾン)",
+  "colors": [
+   "シルバーグレー",
+   "ネイビー",
+   "ブルー",
+   "ライトブラウン"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "L",
+   "LL",
+   "3L",
+   "4L",
+   "5L",
+   "6L",
+   "8L"
+  ],
+  "price": 2145,
+  "priceBySize": null,
+  "discontinued": false
+ },
+ {
+  "code": "7369-06",
+  "name": "EFベスト",
+  "category": "空調服(ベスト)",
+  "colors": [
+   "シルバーグレー",
+   "ネイビー",
+   "ブルー",
+   "ライトブラウン"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "L",
+   "LL",
+   "3L",
+   "4L",
+   "5L",
+   "6L",
+   "8L"
+  ],
+  "price": 2024,
+  "priceBySize": null,
+  "discontinued": false
+ },
+ {
+  "code": "7369-10",
+  "name": "長袖EFブルゾン(反射材付)",
+  "category": "空調服(ブルゾン)",
+  "colors": [
+   "シルバーグレー",
+   "ネイビー",
+   "ブルー",
+   "ライトブラウン"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "L",
+   "LL",
+   "3L",
+   "4L",
+   "5L",
+   "6L",
+   "8L"
+  ],
+  "price": 2530,
+  "priceBySize": null,
+  "discontinued": false
+ },
+ {
+  "code": "7369-11",
+  "name": "半袖EFブルゾン(反射材付)",
+  "category": "空調服(ブルゾン)",
+  "colors": [
+   "シルバーグレー",
+   "ネイビー",
+   "ブルー",
+   "ライトブラウン"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "L",
+   "LL",
+   "3L",
+   "4L",
+   "5L",
+   "6L",
+   "8L"
+  ],
+  "price": 2277,
+  "priceBySize": null,
+  "discontinued": false
+ },
+ {
+  "code": "7369-16",
+  "name": "EFベスト(反射材付)",
+  "category": "空調服(ベスト)",
+  "colors": [
+   "シルバーグレー",
+   "ネイビー",
+   "ブルー",
+   "ライトブラウン"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "L",
+   "LL",
+   "3L",
+   "4L",
+   "5L",
+   "6L",
+   "8L"
+  ],
+  "price": 2123,
+  "priceBySize": null,
+  "discontinued": false
+ },
+ {
+  "code": "7369-90",
+  "name": "フード",
+  "category": "部品",
+  "colors": [
+   "ブラック"
+  ],
+  "sizes": [
+   "F",
+   "XL"
+  ],
+  "price": 484,
+  "priceBySize": null,
+  "discontinued": false
+ },
+ {
+  "code": "7439-06",
+  "name": "EFベスト",
+  "category": "空調服(ベスト)",
+  "colors": [
+   "シルバーグレー",
+   "ネイビー",
+   "ブルー",
+   "レッド"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "L",
+   "LL",
+   "3L",
+   "4L",
+   "6L"
+  ],
+  "price": 770,
+  "priceBySize": null,
+  "discontinued": true
+ },
+ {
+  "code": "7539-00",
+  "name": "長袖EFブルゾン",
+  "category": "空調服(ブルゾン)",
+  "colors": [
+   "シルバーグレー",
+   "ネイビー",
+   "ブラック",
+   "ブルー"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "L",
+   "LL",
+   "3L",
+   "4L",
+   "6L"
+  ],
+  "price": 2277,
+  "priceBySize": null,
+  "discontinued": false
+ },
+ {
+  "code": "7539-01",
+  "name": "半袖EFブルゾン",
+  "category": "空調服(ブルゾン)",
+  "colors": [
+   "シルバーグレー",
+   "ネイビー",
+   "ブラック",
+   "ブルー"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "L",
+   "LL",
+   "3L",
+   "4L",
+   "6L"
+  ],
+  "price": 2123,
+  "priceBySize": null,
+  "discontinued": false
+ },
+ {
+  "code": "7539-06",
+  "name": "EFベスト",
+  "category": "空調服(ベスト)",
+  "colors": [
+   "シルバーグレー",
+   "ネイビー",
+   "ブラック",
+   "ブルー"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "L",
+   "LL",
+   "3L",
+   "4L",
+   "6L"
+  ],
+  "price": 1914,
+  "priceBySize": null,
+  "discontinued": false
+ },
+ {
+  "code": "7789-20",
+  "name": "EF用ツナギ",
+  "category": "空調服(つなぎ)",
+  "colors": [
+   "シルバーグレー",
+   "ネイビー",
+   "ブルー"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "L",
+   "LL",
+   "3L",
+   "4L"
+  ],
+  "price": 1991,
+  "priceBySize": null,
+  "discontinued": true
+ },
+ {
+  "code": "7789-24",
+  "name": "EF用サロペット",
+  "category": "空調服(サロペット)",
+  "colors": [
+   "ネイビー",
+   "ベージュ"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "L",
+   "LL",
+   "3L",
+   "4L"
+  ],
+  "price": 1441,
+  "priceBySize": null,
+  "discontinued": true
+ },
+ {
+  "code": "8001-94",
+  "name": "フード",
+  "category": "冷却フード",
+  "colors": [
+   "シルバーグレー",
+   "ブルー"
+  ],
+  "sizes": [
+   "F"
+  ],
+  "price": 594,
+  "priceBySize": null,
+  "discontinued": false
+ },
+ {
+  "code": "8001-95",
+  "name": "タオル",
+  "category": "冷却タオル",
+  "colors": [
+   "シルバーグレー",
+   "ブルー"
+  ],
+  "sizes": [
+   "F"
+  ],
+  "price": 385,
+  "priceBySize": null,
+  "discontinued": false
+ },
+ {
+  "code": "80036",
+  "name": "メッシュベスト(保冷剤付き)",
+  "category": "冷却ベスト",
+  "colors": [
+   "ブラック"
+  ],
+  "sizes": [
+   "F",
+   "3L"
+  ],
+  "price": null,
+  "priceBySize": {
+   "F": 1419,
+   "3L": 1485
+  },
+  "discontinued": false
+ },
+ {
+  "code": "80056",
+  "name": "保冷剤ベスト",
+  "category": "冷却ベスト",
+  "colors": [
+   "ブラック"
+  ],
+  "sizes": [
+   "F",
+   "XL"
+  ],
+  "price": 1870,
+  "priceBySize": null,
+  "discontinued": false
+ },
+ {
+  "code": "80064",
+  "name": "ネッククーラー",
+  "category": "ネッククーラー",
+  "colors": [
+   "ネイビー"
+  ],
+  "sizes": [
+   "F"
+  ],
+  "price": 473,
+  "priceBySize": null,
+  "discontinued": false
+ },
+ {
+  "code": "8329-01",
+  "name": "EF用半袖ブルゾン",
+  "category": "空調服(ブルゾン)",
+  "colors": [
+   "ダークグリーン",
+   "チャコールグレー",
+   "ブラック",
+   "ロイヤルブルー"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "L",
+   "LL",
+   "3L",
+   "4L",
+   "6L"
+  ],
+  "price": 935,
+  "priceBySize": null,
+  "discontinued": true
+ },
+ {
+  "code": "8329-06",
+  "name": "EF用ベスト",
+  "category": "空調服(ベスト)",
+  "colors": [
+   "ダークグリーン",
+   "チャコールグレー",
+   "ブラック",
+   "ロイヤルブルー"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "L",
+   "LL",
+   "3L",
+   "4L",
+   "6L"
+  ],
+  "price": 913,
+  "priceBySize": null,
+  "discontinued": true
+ },
+ {
+  "code": "8349-00",
+  "name": "EF長袖ブルゾン",
+  "category": "空調服(ブルゾン)",
+  "colors": [
+   "シルバーグレー",
+   "ネイビー",
+   "ブルー"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "L",
+   "LL",
+   "3L",
+   "4L",
+   "6L"
+  ],
+  "price": 3454,
+  "priceBySize": null,
+  "discontinued": false
+ },
+ {
+  "code": "8349-01",
+  "name": "EF半袖ブルゾン",
+  "category": "空調服(ブルゾン)",
+  "colors": [
+   "シルバーグレー",
+   "ネイビー",
+   "ブルー"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "L",
+   "LL",
+   "3L",
+   "4L",
+   "6L"
+  ],
+  "price": 3267,
+  "priceBySize": null,
+  "discontinued": false
+ },
+ {
+  "code": "8349-06",
+  "name": "EFベスト",
+  "category": "空調服(ベスト)",
+  "colors": [
+   "シルバーグレー",
+   "ネイビー",
+   "ブルー"
+  ],
+  "sizes": [
+   "S",
+   "M",
+   "L",
+   "LL",
+   "3L",
+   "4L",
+   "6L"
+  ],
+  "price": 3135,
+  "priceBySize": null,
+  "discontinued": false
+ },
+ {
+  "code": "8991-94",
+  "name": "ブリーズダクトエー",
+  "category": "冷却フード",
+  "colors": [
+   "シルバーグレー"
+  ],
+  "sizes": [
+   "F"
+  ],
+  "price": 4521,
+  "priceBySize": null,
+  "discontinued": false
+ }
+]

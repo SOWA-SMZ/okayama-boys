@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>岡山ボーイズ SOWA社販注文サイト</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #F7F3EA;
+    --panel: #FFFFFF;
+    --navy: #1B2A4A;
+    --navy-deep: #101B33;
+    --green: #2F5233;
+    --clay: #B5652D;
+    --stitch: #A23B2E;
+    --ink: #1C1C1C;
+    --ink-soft: #5B5B57;
+    --line: #E3DCC9;
+    --radius: 14px;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    padding-bottom:84px;
+  }
+  h1,h2,h3,.display{
+    font-family:'Oswald',sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+  }
+
+  .stitch-divider{
+    height:12px;
+    background-image: repeating-linear-gradient(90deg, var(--stitch) 0 10px, transparent 10px 20px);
+    background-size: 20px 2px;
+    background-repeat: repeat-x;
+    background-position: center;
+    opacity:0.5;
+  }
+  header{
+    background: var(--navy);
+    color:#fff;
+    padding: 26px 18px 20px;
+  }
+  .eyebrow{
+    font-family:'Oswald',sans-serif;
+    font-size:12px;
+    letter-spacing:0.18em;
+    color:#B9C3D8;
+    margin:0 0 6px;
+  }
+  header h1{ margin:0; font-size:23px; font-weight:700; }
+  .deadline-banner{
+    margin-top:14px;
+    background: rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.18);
+    border-radius: var(--radius);
+    padding:10px 14px;
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+    font-size:13px;
+  }
+  .deadline-count{
+    background: var(--stitch); padding:4px 10px; border-radius:999px; font-size:11px; white-space:nowrap;
+  }
+
+  main{ max-width:640px; margin:0 auto; padding: 18px 14px 20px; }
+
+  .category-title{
+    font-family:'Oswald',sans-serif;
+    font-size:14px;
+    letter-spacing:0.1em;
+    color:var(--green);
+    margin: 26px 0 10px;
+    display:flex; align-items:center; gap:8px;
+  }
+  .category-title::before{ content:''; width:18px; height:2px; background:var(--stitch); display:inline-block; }
+  .category-title:first-child{ margin-top:4px; }
+
+  .product{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius: var(--radius);
+    padding:16px;
+    margin-bottom:12px;
+  }
+  .product-head{ display:flex; justify-content:space-between; align-items:flex-start; gap:10px; }
+  .product-head .code{ font-size:11px; color:var(--ink-soft); letter-spacing:0.05em; }
+  .product-head h3{ margin:2px 0 0; font-size:16px; color:var(--navy); text-transform:none; letter-spacing:0; }
+  .badge{
+    font-size:10px; background:#F1E4DC; color:var(--stitch);
+    padding:3px 8px; border-radius:999px; white-space:nowrap; font-family:'Inter',sans-serif; font-weight:600;
+  }
+  .price{
+    font-family:'Oswald',sans-serif; font-size:17px; color:var(--stitch); margin-top:6px;
+  }
+  .price .unit{ font-size:11px; color:var(--ink-soft); font-family:'Inter',sans-serif; font-weight:400; margin-left:4px;}
+
+  .option-row{ margin-top:12px; }
+  .option-label{ font-size:11px; color:var(--ink-soft); margin-bottom:6px; font-weight:600; }
+  .chip-group{ display:flex; flex-wrap:wrap; gap:6px; }
+  .chip{
+    font-size:12.5px; padding:6px 11px; border-radius:8px;
+    background:#F4F1E8; color:var(--ink); cursor:pointer;
+    box-shadow: inset 0 0 0 1px #DDD5BE;
+  }
+  .chip.selected{ background:var(--navy); color:#fff; box-shadow:none; }
+
+  .qty-add-row{ margin-top:14px; display:flex; align-items:center; gap:10px; }
+  .qty-stepper{ display:flex; align-items:center; gap:8px; }
+  .qty-btn{
+    width:30px;height:30px;border-radius:50%;border:1px solid #CFC7B0;background:#FCFBF7;font-size:16px;cursor:pointer;line-height:1;
+  }
+  .qty-value{ font-family:'Oswald',sans-serif; font-size:15px; min-width:20px; text-align:center; }
+  .add-btn{
+    flex:1; padding:10px; border:none; border-radius:999px;
+    background: var(--navy); color:#fff; font-family:'Oswald',sans-serif;
+    font-size:13px; letter-spacing:0.06em; cursor:pointer;
+  }
+  .add-btn:disabled{ background:#C8C2B2; cursor:not-allowed; }
+  .add-btn.added{ background:var(--green); }
+
+  .cart-bar{
+    position:fixed; left:0; right:0; bottom:0;
+    background:var(--navy-deep); color:#fff;
+    padding:12px 18px;
+    display:flex; align-items:center; justify-content:space-between;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.15);
+    z-index:50;
+  }
+  .cart-bar .info{ font-family:'Oswald',sans-serif; font-size:14px; letter-spacing:0.03em; }
+  .cart-bar button{
+    background:var(--stitch); color:#fff; border:none; border-radius:999px;
+    padding:9px 18px; font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.06em; cursor:pointer;
+  }
+
+  .overlay{
+    position:fixed; inset:0; background:rgba(16,20,30,0.55); z-index:100;
+    display:none; align-items:flex-end; justify-content:center;
+  }
+  .overlay.open{ display:flex; }
+  .sheet{
+    background:var(--bg); width:100%; max-width:640px; max-height:88vh; overflow-y:auto;
+    border-radius: 20px 20px 0 0; padding:20px 18px 28px;
+  }
+  .sheet-head{ display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; }
+  .sheet-head h2{ font-size:18px; margin:0; color:var(--navy); }
+  .close-btn{ background:none; border:none; font-size:22px; cursor:pointer; color:var(--ink-soft); }
+
+  .cart-line{
+    display:flex; justify-content:space-between; align-items:center;
+    background:var(--panel); border:1px solid var(--line); border-radius:10px;
+    padding:10px 12px; margin-bottom:8px; font-size:13px;
+  }
+  .cart-line .meta{ color:var(--ink-soft); font-size:11px; }
+  .cart-line .remove{ color:var(--stitch); font-size:12px; cursor:pointer; background:none; border:none; margin-left:8px; }
+
+  .grand-total{
+    display:flex; justify-content:space-between; align-items:baseline;
+    padding-top:12px; margin-top:6px; border-top:1px dashed var(--line);
+    font-family:'Oswald',sans-serif;
+  }
+  .grand-total .value{ font-size:22px; color:var(--navy); }
+
+  label{ display:block; font-size:13px; font-weight:600; margin:14px 0 6px; }
+  input[type=text],input[type=tel],input[type=email],textarea{
+    width:100%; padding:11px 12px; border:1px solid #CFC7B0; border-radius:10px;
+    font-size:15px; font-family:'Inter',sans-serif; background:#FCFBF7; color:var(--ink);
+  }
+  input:focus,textarea:focus{ outline:3px solid #8FB2A8; outline-offset:1px; }
+  textarea{ resize:vertical; min-height:56px; }
+
+  .submit-btn{
+    width:100%; padding:15px; border:none; border-radius:999px;
+    background: var(--stitch); color:#fff; font-family:'Oswald',sans-serif;
+    font-size:16px; letter-spacing:0.08em; text-transform:uppercase; cursor:pointer; margin-top:18px;
+  }
+  .submit-btn:disabled{ background:#B8AFA0; cursor:not-allowed; }
+
+  .status-msg{ margin-top:12px; padding:12px 14px; border-radius:10px; font-size:13.5px; display:none; }
+  .status-msg.success{ display:block; background:#EAF3EC; color:#245C3B; border:1px solid #BFDFC9;}
+  .status-msg.error{ display:block; background:#FBEAE7; color:#8A2E22; border:1px solid #F1C6BC;}
+
+  .empty-cart{ text-align:center; color:var(--ink-soft); font-size:13px; padding:30px 0; }
+
+  .closed-banner{
+    background:#3A2C2C; color:#F3E6DE; padding:18px; border-radius:var(--radius);
+    text-align:center; font-family:'Oswald',sans-serif; letter-spacing:0.05em; margin-top:20px;
+  }
+
+  footer{ text-align:center; padding: 10px 16px 20px; font-size:12px; color:var(--ink-soft); }
+</style>
+</head>
+<body>
+
+<header>
+  <p class="eyebrow">OKAYAMA BOYS × SOWA</p>
+  <h1>社販注文サイト</h1>
+  <div class="deadline-banner">
+    <span>締切: <strong id="deadlineText">2026年7月27日(月) 23:59</strong></span>
+    <span class="deadline-count" id="deadlineCount">受付中</span>
+  </div>
+</header>
+<div class="stitch-divider"></div>
+
+<main id="catalog"></main>
+
+<div class="closed-banner" id="closedBanner" style="display:none; max-width:640px; margin:20px auto;">
+  受付は終了しました
+</div>
+
+<footer>
+  岡山ボーイズ ／ SOWA社販注文サイト<br>
+  お問い合わせは監督・スタッフまでご連絡ください。
+</footer>
+
+<div class="cart-bar" id="cartBar" style="display:none;">
+  <span class="info" id="cartInfo">0点 ／ ¥0</span>
+  <button id="openCartBtn">注文内容を確認する</button>
+</div>
+
+<div class="overlay" id="cartOverlay">
+  <div class="sheet">
+    <div class="sheet-head">
+      <h2>注文内容の確認</h2>
+      <button class="close-btn" id="closeCartBtn">&times;</button>
+    </div>
+    <div id="cartLines"></div>
+    <div class="grand-total">
+      <span>合計（税込）</span>
+      <span class="value" id="grandTotal">¥0</span>
+    </div>
+
+    <form id="orderForm">
+      <label for="playerName">選手名<span aria-hidden="true">*</span></label>
+      <input type="text" id="playerName" required placeholder="例）桑和 太郎">
+
+      <label for="guardianName">保護者氏名</label>
+      <input type="text" id="guardianName" placeholder="任意">
+
+      <label for="contact">保護者連絡先（電話 または メール）<span aria-hidden="true">*</span></label>
+      <input type="text" id="contact" required placeholder="090-XXXX-XXXX または example@mail.com">
+
+      <label for="note">備考</label>
+      <textarea id="note" placeholder="サイズ相談やその他ご要望（任意）"></textarea>
+
+      <button type="submit" class="submit-btn" id="submitBtn">この内容で注文する</button>
+      <div class="status-msg" id="statusMsg"></div>
+    </form>
+  </div>
+</div>
+
+<script>
+  const GAS_URL = 'https://script.google.com/macros/s/AKfycbypoOi3DUWQn4f7QsXjvyqakVz7IWVNoU7JYdOEdzs4pf936i2KgbLH1O5TFH0_xcbK/exec';
+  const DEADLINE = new Date('2026-07-27T23:59:59+09:00');
+  const PRODUCTS_URL = 'products.json';
+
+  let PRODUCTS = [];
+  let cart = [];
+
+  const catalogEl = document.getElementById('catalog');
+  const cartBar = document.getElementById('cartBar');
+  const cartInfo = document.getElementById('cartInfo');
+  const cartOverlay = document.getElementById('cartOverlay');
+  const cartLinesEl = document.getElementById('cartLines');
+  const grandTotalEl = document.getElementById('grandTotal');
+  const orderForm = document.getElementById('orderForm');
+
+  function checkDeadline(){
+    const now = new Date();
+    const diffMs = DEADLINE - now;
+    const deadlineCount = document.getElementById('deadlineCount');
+    if (diffMs <= 0) {
+      deadlineCount.textContent = '受付終了';
+      deadlineCount.style.background = '#5B5B57';
+      document.getElementById('catalog').style.display = 'none';
+      document.getElementById('cartBar').style.display = 'none';
+      document.getElementById('closedBanner').style.display = 'block';
+      return false;
+    }
+    const days = Math.ceil(diffMs / (1000*60*60*24));
+    deadlineCount.textContent = 'あと' + days + '日';
+    return true;
+  }
+
+  function priceLabel(p){
+    if (p.priceBySize) {
+      const parts = p.sizes.map(s => s + ':¥' + p.priceBySize[s].toLocaleString());
+      return parts.join(' / ');
+    }
+    return '¥' + p.price.toLocaleString();
+  }
+  function unitPriceFor(p, size){
+    if (p.priceBySize) return p.priceBySize[size] || Object.values(p.priceBySize)[0];
+    return p.price;
+  }
+
+  function renderCatalog(){
+    const categories = [...new Set(PRODUCTS.map(p => p.category))];
+    catalogEl.innerHTML = '';
+    categories.forEach(cat => {
+      const h = document.createElement('p');
+      h.className = 'category-title';
+      h.textContent = cat;
+      catalogEl.appendChild(h);
+
+      PRODUCTS.filter(p => p.category === cat).forEach(p => {
+        const card = document.createElement('div');
+        card.className = 'product';
+        card.dataset.code = p.code;
+
+        const colorChips = p.colors.map(c => `<div class="chip color-chip" data-color="${c}">${c}</div>`).join('');
+        const sizeChips = p.sizes.map(s => `<div class="chip size-chip" data-size="${s}">${s}</div>`).join('');
+
+        card.innerHTML = `
+          <div class="product-head">
+            <div>
+              <p class="code">品番 ${p.code}</p>
+              <h3>${p.name}</h3>
+            </div>
+            ${p.discontinued ? '<span class="badge">現品限り</span>' : ''}
+          </div>
+          <p class="price">${priceLabel(p)} <span class="unit">税込</span></p>
+          ${p.colors[0] !== '-' ? `<div class="option-row"><p class="option-label">カラー</p><div class="chip-group color-group">${colorChips}</div></div>` : ''}
+          <div class="option-row"><p class="option-label">サイズ</p><div class="chip-group size-group">${sizeChips}</div></div>
+          <div class="qty-add-row">
+            <div class="qty-stepper">
+              <div class="qty-btn minus">−</div>
+              <div class="qty-value">1</div>
+              <div class="qty-btn plus">＋</div>
+            </div>
+            <button class="add-btn">カートに追加</button>
+          </div>
+        `;
+        catalogEl.appendChild(card);
+
+        let selectedColor = p.colors[0] !== '-' ? null : '-';
+        let selectedSize = p.sizes.length === 1 ? p.sizes[0] : null;
+        let qty = 1;
+
+        card.querySelectorAll('.color-chip').forEach(chip => {
+          chip.addEventListener('click', () => {
+            card.querySelectorAll('.color-chip').forEach(c => c.classList.remove('selected'));
+            chip.classList.add('selected');
+            selectedColor = chip.dataset.color;
+          });
+        });
+        card.querySelectorAll('.size-chip').forEach(chip => {
+          if (p.sizes.length === 1) chip.classList.add('selected');
+          chip.addEventListener('click', () => {
+            card.querySelectorAll('.size-chip').forEach(c => c.classList.remove('selected'));
+            chip.classList.add('selected');
+            selectedSize = chip.dataset.size;
+          });
+        });
+        const qtyValueEl = card.querySelector('.qty-value');
+        card.querySelector('.minus').addEventListener('click', () => { if(qty>1){ qty--; qtyValueEl.textContent = qty; } });
+        card.querySelector('.plus').addEventListener('click', () => { if(qty<20){ qty++; qtyValueEl.textContent = qty; } });
+
+        card.querySelector('.add-btn').addEventListener('click', () => {
+          if (!selectedColor) { alert('カラーを選択してください。'); return; }
+          if (!selectedSize) { alert('サイズを選択してください。'); return; }
+          const unitPrice = unitPriceFor(p, selectedSize);
+          cart.push({
+            code: p.code, name: p.name,
+            color: selectedColor === '-' ? '' : selectedColor,
+            size: selectedSize, qty, unitPrice,
+            lineTotal: unitPrice * qty
+          });
+          updateCartBar();
+          const btn = card.querySelector('.add-btn');
+          btn.textContent = '追加しました';
+          btn.classList.add('added');
+          setTimeout(() => { btn.textContent = 'カートに追加'; btn.classList.remove('added'); }, 1200);
+        });
+      });
+    });
+  }
+
+  function updateCartBar(){
+    if (cart.length === 0) { cartBar.style.display = 'none'; return; }
+    cartBar.style.display = 'flex';
+    const totalQty = cart.reduce((s,l) => s + l.qty, 0);
+    const totalYen = cart.reduce((s,l) => s + l.lineTotal, 0);
+    cartInfo.textContent = totalQty + '点 ／ ¥' + totalYen.toLocaleString();
+  }
+
+  function renderCartLines(){
+    if (cart.length === 0) {
+      cartLinesEl.innerHTML = '<p class="empty-cart">カートに商品がありません</p>';
+      grandTotalEl.textContent = '¥0';
+      return;
+    }
+    cartLinesEl.innerHTML = cart.map((l, i) => `
+      <div class="cart-line">
+        <div>
+          <div>${l.name} ${l.color ? '／ '+l.color : ''} ／ ${l.size} × ${l.qty}</div>
+          <div class="meta">品番 ${l.code}　¥${l.lineTotal.toLocaleString()}</div>
+        </div>
+        <button class="remove" data-idx="${i}">削除</button>
+      </div>
+    `).join('');
+    cartLinesEl.querySelectorAll('.remove').forEach(btn => {
+      btn.addEventListener('click', () => {
+        cart.splice(Number(btn.dataset.idx), 1);
+        renderCartLines();
+        updateCartBar();
+      });
+    });
+    const total = cart.reduce((s,l) => s + l.lineTotal, 0);
+    grandTotalEl.textContent = '¥' + total.toLocaleString();
+  }
+
+  document.getElementById('openCartBtn').addEventListener('click', () => {
+    renderCartLines();
+    cartOverlay.classList.add('open');
+  });
+  document.getElementById('closeCartBtn').addEventListener('click', () => {
+    cartOverlay.classList.remove('open');
+  });
+
+  const statusMsg = document.getElementById('statusMsg');
+  const submitBtn = document.getElementById('submitBtn');
+
+  orderForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    statusMsg.className = 'status-msg';
+    statusMsg.textContent = '';
+
+    if (cart.length === 0) {
+      statusMsg.className = 'status-msg error';
+      statusMsg.textContent = 'カートに商品がありません。商品を追加してください。';
+      return;
+    }
+    const playerName = document.getElementById('playerName').value.trim();
+    const contact = document.getElementById('contact').value.trim();
+    if (!playerName || !contact) {
+      statusMsg.className = 'status-msg error';
+      statusMsg.textContent = '選手名と保護者連絡先を入力してください。';
+      return;
+    }
+
+    const payload = {
+      playerName,
+      guardianName: document.getElementById('guardianName').value.trim(),
+      contact,
+      note: document.getElementById('note').value.trim(),
+      items: cart
+    };
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = '送信中...';
+
+    try {
+      const res = await fetch(GAS_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+        body: JSON.stringify(payload)
+      });
+      const result = await res.json();
+      if (result.success) {
+        statusMsg.className = 'status-msg success';
+        statusMsg.textContent = '注文を受け付けました。ありがとうございました！';
+        cart = [];
+        updateCartBar();
+        renderCartLines();
+        orderForm.reset();
+        setTimeout(() => { cartOverlay.classList.remove('open'); }, 1500);
+      } else {
+        statusMsg.className = 'status-msg error';
+        statusMsg.textContent = result.message || '送信に失敗しました。時間をおいて再度お試しください。';
+      }
+    } catch (err) {
+      statusMsg.className = 'status-msg error';
+      statusMsg.textContent = '通信エラーが発生しました。時間をおいて再度お試しください。';
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'この内容で注文する';
+    }
+  });
+
+  async function init(){
+    if (!checkDeadline()) return;
+    try {
+      const res = await fetch(PRODUCTS_URL);
+      PRODUCTS = await res.json();
+      renderCatalog();
+    } catch(err) {
+      catalogEl.innerHTML = '<p style="text-align:center;color:#8A2E22;">商品データの読み込みに失敗しました。products.jsonが同じフォルダにあるか確認してください。</p>';
+    }
+  }
+  init();
+</script>
+
+</body>
+</html>
